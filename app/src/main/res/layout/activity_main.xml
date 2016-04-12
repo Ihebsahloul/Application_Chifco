@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical"
+
         >
         <include
             android:id="@+id/toolbar"
@@ -20,6 +21,13 @@
             android:id="@+id/frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView3"
+                android:src="@drawable/designelement22"/>
+
+
 
         </FrameLayout>
 
@@ -32,6 +40,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
         app:menu="@menu/drawer"
+        app:theme="@style/NavigationViewStyle"
         />
 </android.support.v4.widget.DrawerLayout>
 
