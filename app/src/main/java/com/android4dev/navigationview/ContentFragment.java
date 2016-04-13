@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+
 /**
  * Created by Admin on 04-06-2015.
  */
@@ -17,5 +19,8 @@ public class ContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.content_fragment,container,false);
         return v;
+
     }
+
+   
 }
