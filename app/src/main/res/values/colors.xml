@@ -2,6 +2,6 @@
 <resources>
     <color name="PrimaryColor">#efefef</color>
     <color name="TextColor">#193f60</color>
-    <color name="PrimaryDarkColor">#1976D2</color>
-    <color name="Edittext">#61ab25</color>
+    <color name="PrimaryDarkColor">#1976d2</color>
+    <color name="Edittext">#15a698</color>
 </resources>

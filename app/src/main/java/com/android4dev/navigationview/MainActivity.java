@@ -1,5 +1,6 @@
 package com.android4dev.navigationview;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -34,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new ContentFragment()).commit();
+        }
+
+
 
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -50,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         //Initializing NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
+
+
+
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
@@ -70,33 +79,52 @@ public class MainActivity extends AppCompatActivity {
 
 
                     //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.nav_camera:
-                        Toast.makeText(getApplicationContext(), "Inbox Selected", Toast.LENGTH_SHORT).show();
-                        ContentFragment fragment = new ContentFragment();
-                        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.frame, fragment);
-                        fragmentTransaction.commit();
+                    case R.id.dashboard_item:
+                        Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
+                        ContentFragment fragment1 = new ContentFragment();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction1.replace(R.id.frame, fragment1);
+                        fragmentTransaction1.commit();
                         return true;
 
                     // For rest of the options we just show a toast on click
 
-                    case R.id.nav_gallery:
-                        Toast.makeText(getApplicationContext(), "Send Selected", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, CollapsingToolbarActivity.class);
-                        startActivity(intent);
+                    case R.id.tasks_item:
+                        Toast.makeText(getApplicationContext(), "test2 Selected", Toast.LENGTH_SHORT).show();
+                        FragmentTwo fragment2 = new FragmentTwo();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction2.replace(R.id.frame, fragment2);
+                        fragmentTransaction2.commit();
+                        return true;
 
+
+                    case R.id.stats_item:
+                        Toast.makeText(getApplicationContext(), "test3 Selected", Toast.LENGTH_SHORT).show();
+                        FragmentThree fragment3 = new FragmentThree();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction3.replace(R.id.frame, fragment3);
+                        fragmentTransaction3.commit();
                         return true;
-                    case R.id.nav_slideshow:
-                        Toast.makeText(getApplicationContext(), "Drafts Selected", Toast.LENGTH_SHORT).show();
+
+                    case R.id.notifs_item:
+                        Toast.makeText(getApplicationContext(), "test4 Selected", Toast.LENGTH_SHORT).show();
+                        FragmentFour fragment4 = new FragmentFour();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction4.replace(R.id.frame, fragment4);
+                        fragmentTransaction4.commit();
                         return true;
-                    case R.id.nav_share:
-                        Toast.makeText(getApplicationContext(), "All Mail Selected", Toast.LENGTH_SHORT).show();
-                        return true;
+
                     case R.id.nav_send:
-                        Toast.makeText(getApplicationContext(), "Trash Selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "quit Selected", Toast.LENGTH_SHORT).show();
                         return true;
+
+
                     default:
-                        Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
+                        ContentFragment fragment5 = new ContentFragment();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction5 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction5.replace(R.id.frame, fragment5);
+                        fragmentTransaction5.commit();
                         return true;
 
                 }
@@ -149,7 +177,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+
+
     }
+
+
 }
 
 

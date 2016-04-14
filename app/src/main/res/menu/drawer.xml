@@ -4,7 +4,7 @@
     <group android:id="@+id/group_feature"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/dashboard_item"
             android:icon="@drawable/ic_dash"
             android:title="Tableau de bord"
             />
@@ -12,7 +12,7 @@
     <group android:id="@+id/group_makeup"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/tasks_item"
             android:icon="@drawable/ic_tasks"
             android:title="Liste des tâches" />
     </group>
@@ -20,7 +20,7 @@
     <group android:id="@+id/group_setup"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/stats_item"
             android:icon="@drawable/ic_stats"
             android:title="Statistiques"
             android:background="@drawable/logochifco"/>
@@ -29,7 +29,7 @@
     <group android:id="@+id/group_load"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/notifs_item"
             android:icon="@drawable/ic_notifs"
             android:title="Notifications" />
 

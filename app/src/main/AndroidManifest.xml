@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android4dev.navigationview" >
+    package="com.android4dev.navigationview">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/appicone"
-        android:logo="@drawable/appicone"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-
+        android:logo="@drawable/appicone"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Splash"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"  />
-        <activity android:name=".LoginActivity"  />
-        <activity android:name=".SignupActivity"  />
-        <activity android:name=".CollapsingToolbarActivity"  />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".CollapsingToolbarActivity" />
+        <activity android:name=".Dashobard"></activity>
     </application>
 
 </manifest>
