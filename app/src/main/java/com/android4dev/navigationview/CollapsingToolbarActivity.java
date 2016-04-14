@@ -30,5 +30,6 @@ public class CollapsingToolbarActivity extends AppCompatActivity
         getSupportActionBar().setLogo(R.drawable.smartlife);
         /*getSupportActionBar().setTitle("Smart Life");*/
 
+
     }
 }

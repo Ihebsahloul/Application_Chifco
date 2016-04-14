@@ -8,16 +8,16 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
+        android:paddingTop="0dp"
         android:paddingLeft="0dp"
         android:paddingRight="0dp">
 
 
         <ImageView
             android:src="@drawable/smartlife"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="189dp"
+            android:layout_height="75dp"
+            android:layout_marginBottom="0dp"
             android:layout_gravity="center_horizontal" />
 
         <!-- Email Label -->
@@ -30,11 +30,11 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="70dp"
             android:layout_marginBottom="8dp"
             android:gravity="center">
             <EditText android:id="@+id/input_email"
-                android:layout_width="220dp"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
@@ -45,12 +45,12 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="8dp"
             android:gravity="center">
             <EditText
                 android:id="@+id/input_password"
-                android:layout_width="220dp"
+                android:layout_width="260dp"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Mot de Passe"
@@ -59,13 +59,14 @@
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"
-            android:layout_width="220dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Se connecter"
-            android:background="#8fc133"
+            android:textSize="18dp"
+            android:background="#80b125"
             android:textColor="@color/PrimaryColor"
             android:layout_gravity="center" />
 
