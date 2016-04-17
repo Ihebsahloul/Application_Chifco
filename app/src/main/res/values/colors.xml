@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="PrimaryColor">#efefef</color>
+    <color name="colorPrimary">#009688</color>
     <color name="TextColor">#193f60</color>
     <color name="PrimaryDarkColor">#1976d2</color>
     <color name="Edittext">#15a698</color>
+    <color name="randomcolor">#ede31d</color>
+    <color name="colorAccent">#69be3b</color>
+    <color name="light_black">#ed3023</color>
+    <color name="black">#000000</color>
+    <color name="blue">#1a4680</color>
 </resources>

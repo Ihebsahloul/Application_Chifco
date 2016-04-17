@@ -20,8 +20,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".CollapsingToolbarActivity" />
-        <activity android:name=".Dashobard"></activity>
+
     </application>
 
 </manifest>

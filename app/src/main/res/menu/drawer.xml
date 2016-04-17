@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/group_feature"
-        android:checkableBehavior="single">
+        >
         <item
             android:id="@+id/dashboard_item"
             android:icon="@drawable/ic_dash"
@@ -10,7 +10,7 @@
             />
     </group>
     <group android:id="@+id/group_makeup"
-        android:checkableBehavior="single">
+       >
         <item
             android:id="@+id/tasks_item"
             android:icon="@drawable/ic_tasks"
@@ -18,7 +18,7 @@
     </group>
 
     <group android:id="@+id/group_setup"
-        android:checkableBehavior="single">
+        >
         <item
             android:id="@+id/stats_item"
             android:icon="@drawable/ic_stats"
@@ -26,8 +26,7 @@
             android:background="@drawable/logochifco"/>
     </group>
 
-    <group android:id="@+id/group_load"
-        android:checkableBehavior="single">
+    <group android:id="@+id/group_load">
         <item
             android:id="@+id/notifs_item"
             android:icon="@drawable/ic_notifs"

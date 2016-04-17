@@ -2,22 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="190dp"
-    android:background="@drawable/unnamed"
+    android:background="@mipmap/back2"
     android:orientation="vertical"
     >
 
-    <de.hdodenhof.circleimageview.CircleImageView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/profile_image"
-        android:layout_width="76dp"
-    android:layout_height="76dp"
-    android:src="@drawable/profile2"
-    app:border_color="#FF000000"
-        android:layout_marginLeft="24dp"
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logochifco"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="24dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,9 +25,12 @@
         android:gravity="left"
         android:paddingBottom="4dp"
         android:id="@+id/username"
+
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
         android:layout_above="@+id/email"
-        android:layout_alignLeft="@+id/profile_image"
-        android:layout_alignStart="@+id/profile_image" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,14 +45,6 @@
         android:layout_alignLeft="@+id/username"
         android:layout_alignStart="@+id/username" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/smartlife"
-        android:layout_alignBottom="@+id/profile_image"
-        android:layout_toRightOf="@+id/email"
-        android:layout_toEndOf="@+id/email"
-        android:layout_marginBottom="28dp" />
+
 
 </RelativeLayout>

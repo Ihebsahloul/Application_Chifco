@@ -41,11 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setLogo(R.drawable.smartlife);
+        //toolbar.setSearchIcon(R.id.)
         //toolbar.setTitle("Smart Life");
 
 
