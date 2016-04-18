@@ -5,54 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="500dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#fff"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="200dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:text="Stockage"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-            <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cpb_background_progressbar_color="#FFCDD2"
-                app:cpb_background_progressbar_width="5dp"
-                app:cpb_progressbar_color="#F44336"
-                android:id="@+id/cpb1"
-                app:cpb_progressbar_width="10dp" />
-
-
-
-
-            <TextView
-                android:id="@+id/progress_circle_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:text="15%"
-                android:textColor="@color/blue"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
 
 
 

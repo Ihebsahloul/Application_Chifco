@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+
+
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -19,13 +21,16 @@ android {
     }
 }
 
+repositories {
+
+
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-
-
-
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:design:22.2.1'
     compile 'de.hdodenhof:circleimageview:1.3.0'
@@ -35,6 +40,15 @@ dependencies {
     compile 'com.android.support:support-v4:22.2.1'
     compile 'com.txusballesteros:FitChart:1.0'
     compile 'com.mikhaellopez:circularprogressbar:1.1.1'
+    compile 'com.github.HackPlan:AndroidCharts:195635f8ee'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    compile 'com.diogobernardino:williamchart:2.2'
+    compile 'com.github.PhilJay:MPAndroidChart:v2.0.9'
+
+
+
+
 }
 
 

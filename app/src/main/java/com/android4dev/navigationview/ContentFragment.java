@@ -55,7 +55,31 @@ public class ContentFragment extends Fragment {
 
         RelativeLayout viewroot  = ( RelativeLayout) inflater.inflate(R.layout.content_fragment, container, false);
 
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+        Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
 
+        TextView txt1 = (TextView)  viewroot.findViewById(R.id.textView2);
+        TextView txt2 = (TextView)  viewroot.findViewById(R.id.textView3);
+        TextView txt3 = (TextView)  viewroot.findViewById(R.id.textView4);
+        TextView txt4 = (TextView)  viewroot.findViewById(R.id.textView5);
+        TextView txt5 = (TextView)  viewroot.findViewById(R.id.progress_circle_text);
+        TextView txt6 = (TextView)  viewroot.findViewById(R.id.progress_circle_text1);
+        TextView txt7 = (TextView)  viewroot.findViewById(R.id.progress_circle_text3);
+        TextView txt8 = (TextView)  viewroot.findViewById(R.id.progress_circle_text4);
+
+
+
+
+
+
+        txt1.setTypeface(tf);
+        txt2.setTypeface(tf);
+        txt3.setTypeface(tf);
+        txt4.setTypeface(tf);
+        txt5.setTypeface(tf1);
+        txt6.setTypeface(tf1);
+        txt7.setTypeface(tf1);
+        txt8.setTypeface(tf1);
         progressingTextView = (TextView) viewroot.findViewById(R.id.progress_circle_text);
         progressingTextView1 = (TextView) viewroot.findViewById(R.id.progress_circle_text1);
         CircularProgressBar circularProgressBar = (CircularProgressBar)viewroot.findViewById(R.id.cpb1);

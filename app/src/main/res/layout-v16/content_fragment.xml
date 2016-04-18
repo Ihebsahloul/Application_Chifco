@@ -47,7 +47,8 @@
                             android:text="Temperature"
                             android:textSize="18sp"
 
-                            android:id="@+id/textView3" />
+                            android:id="@+id/textView3"
+                            />
 
                         <ImageView
                             android:id="@+id/progressBar"
@@ -101,7 +102,8 @@
                             android:layout_marginTop="16dp"
                             android:text="Météo"
                             android:textSize="18sp"
-                            android:id="@+id/textView4" />
+                            android:id="@+id/textView4"
+                            android:fontFamily="Myriad Pro" />
 
 
                         <TextView
@@ -110,7 +112,7 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="75°"
+                            android:text="75"
                             android:textColor="@color/colorAccent"
                             android:textSize="50sp"
                             android:textStyle="bold"

@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         //Initializing NavigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setItemIconTintList(null);
