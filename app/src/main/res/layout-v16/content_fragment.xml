@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingBottom="10dp"
-                android:paddingTop="0dp">
+                android:paddingTop="0dp"
+                android:layout_marginTop="12dp">
 
                 <LinearLayout
                     android:layout_width="50dp"
@@ -40,15 +41,18 @@
                         android:layout_height="200dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="16dp"
-                            android:text="Temperature"
+                            android:layout_marginTop="0dp"
+                            android:textColor="#ffffff"
+                            android:text="     Temperature     "
                             android:textSize="18sp"
 
                             android:id="@+id/textView3"
-                            />
+                            android:background="@color/PrimaryDarkColor"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
 
                         <ImageView
                             android:id="@+id/progressBar"
@@ -77,7 +81,7 @@
                             android:textStyle="bold"
                             android:layout_centerHorizontal="true"
                             android:layout_below="@+id/textView3"
-                             />
+                            android:layout_marginTop="10dp" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -96,14 +100,18 @@
                         android:layout_gravity="center_horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="16dp"
-                            android:text="Météo"
+                            android:layout_marginTop="0dp"
+                            android:text="              CO²              "
                             android:textSize="18sp"
+                            android:textColor="#ffffff"
                             android:id="@+id/textView4"
-                            android:fontFamily="Myriad Pro" />
+                            android:fontFamily="Myriad Pro"
+                            android:background="@color/colorAccent"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp" />
 
 
                         <TextView
@@ -118,21 +126,24 @@
                             android:textStyle="bold"
                             android:layout_below="@+id/textView4"
                             android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true" />
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="42dp" />
                     </RelativeLayout>
 
                     <ImageView
                         android:id="@+id/progressBar1"
                         style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/cloud2"
+                        android:layout_width="55dp"
+                        android:gravity="center_horizontal"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/leaf"
                         android:layout_alignWithParentIfMissing="false"
                         android:layout_below="@+id/progress_circle_text1"
                         android:layout_alignRight="@+id/progress_circle_text1"
                         android:layout_alignEnd="@+id/progress_circle_text1"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="13dp"
+                        android:layout_marginBottom="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -168,7 +179,7 @@
                             android:id="@+id/progressBar3"
                             android:layout_width="200dp"
                             android:layout_height="200dp"
-                            android:background="@drawable/elec1"
+                            android:background="@drawable/elecorange"
                             android:indeterminate="false"
                             android:layout_below="@+id/progress_circle_text3"
                             android:layout_alignRight="@+id/progress_circle_text3"
@@ -206,33 +217,35 @@
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="170dp">
+                        android:layout_height="wrap_content">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginTop="16dp"
-                            android:text="Energie"
+                            android:text="           Energie          "
                             android:textSize="18sp"
+                            android:background="#ea6f51"
                             android:id="@+id/textView2"
-                            android:textStyle="normal" />
-
+                            android:textStyle="normal"
+                            android:textColor="#ffffff"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp" />
 
                         <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                            android:layout_width="200dp"
-                            android:layout_height="200dp"
-                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
                             app:cpb_background_progressbar_color="#FFCDD2"
                             app:cpb_background_progressbar_width="2dp"
                             app:cpb_progressbar_color="#ea6f51"
                             android:id="@+id/cpb1"
                             app:cpb_progressbar_width="4dp"
-                            android:layout_below="@+id/textView2"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="10dp" />
+                            android:layout_gravity="center"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="7dp" />
 
                         <TextView
                             android:id="@+id/progress_circle_text4"
@@ -244,51 +257,58 @@
                             android:textColor="#ea6f51"
                             android:textSize="25sp"
                             android:textStyle="bold"
-                            android:layout_centerVertical="true"
-                            android:layout_centerHorizontal="true"
-                            android:paddingTop="20dp" />
+                            android:paddingTop="20dp"
+                            android:layout_marginTop="28dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true" />
+
 
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
 
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logochifco"
+                android:id="@+id/imageView5"
+                android:paddingBottom="10dp"
+                android:adjustViewBounds="false"
+
+
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp" />
+
 
         </LinearLayout>
+
+
+
+
+
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
 
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="50dp"
-            android:id="@+id/imageView4"
-            android:src="@drawable/powered"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_gravity="center"
-            android:adjustViewBounds="false"
-            android:layout_marginLeft="43dp" />
+    </RelativeLayout>
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:src="@drawable/logochifco"
-            android:id="@+id/imageView5"
-            android:layout_alignTop="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageView4"
-            android:layout_toEndOf="@+id/imageView4"
-            android:layout_gravity="center"
-            android:paddingBottom="10dp"
-            android:adjustViewBounds="false"
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="5dp" />
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_toRightOf="@+id/relativeLayout"
+        android:layout_toEndOf="@+id/relativeLayout">
 
 
-
-
-
+    </LinearLayout>
 
 
 </RelativeLayout>
