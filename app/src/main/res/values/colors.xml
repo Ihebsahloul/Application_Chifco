@@ -4,6 +4,7 @@
     <color name="colorPrimary">#009688</color>
     <color name="TextColor">#193f60</color>
     <color name="PrimaryDarkColor">#1976d2</color>
+    <color name="lighterblue">#256194</color>
     <color name="Edittext">#15a698</color>
     <color name="randomcolor">#ede31d</color>
     <color name="colorAccent">#69be3b</color>
