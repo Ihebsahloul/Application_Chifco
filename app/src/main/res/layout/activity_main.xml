@@ -19,7 +19,7 @@
             layout="@layout/tool_bar"/>
 
         <ImageView
-            android:layout_width="360dp"
+            android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:id="@+id/imageView3"
             android:src="@drawable/designelement22"

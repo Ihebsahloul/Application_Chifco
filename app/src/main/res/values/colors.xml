@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="PrimaryColor">#efefef</color>
-    <color name="colorPrimary">#009688</color>
+    <color name="PrimaryColor">#ebeeee</color>
+    <color name="colorPrimary">#47bd7a</color>
     <color name="TextColor">#193f60</color>
     <color name="PrimaryDarkColor">#1976d2</color>
     <color name="lighterblue">#256194</color>
     <color name="Edittext">#15a698</color>
-    <color name="randomcolor">#ede31d</color>
+    <color name="randomcolor">#fae123</color>
     <color name="colorAccent">#69be3b</color>
     <color name="light_black">#ed3023</color>
     <color name="black">#000000</color>
     <color name="blue">#1a4680</color>
     <color name="orange">#ea7826</color>
+    <color name="orange2">#ff9e28</color>
+    <color name="purewhite">#ffffff</color>
 </resources>

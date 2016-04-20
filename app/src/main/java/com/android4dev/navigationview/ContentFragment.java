@@ -66,6 +66,10 @@ public class ContentFragment extends Fragment {
         TextView txt6 = (TextView)  viewroot.findViewById(R.id.progress_circle_text1);
         TextView txt7 = (TextView)  viewroot.findViewById(R.id.progress_circle_text3);
         TextView txt8 = (TextView)  viewroot.findViewById(R.id.progress_circle_text4);
+        //TextView txt9 = (TextView)  viewroot.findViewById(R.id.textView32);
+        TextView txt10 = (TextView)  viewroot.findViewById(R.id.textView6);
+        TextView txt11 = (TextView)  viewroot.findViewById(R.id.progress_circle_text11);
+        TextView txt12 = (TextView)  viewroot.findViewById(R.id.textView);
 
 
 
@@ -80,6 +84,12 @@ public class ContentFragment extends Fragment {
         txt6.setTypeface(tf1);
         txt7.setTypeface(tf1);
         txt8.setTypeface(tf1);
+        //txt9.setTypeface(tf1);
+        txt10.setTypeface(tf1);
+        txt11.setTypeface(tf1);
+        txt12.setTypeface(tf1);
+
+
         progressingTextView = (TextView) viewroot.findViewById(R.id.progress_circle_text);
         progressingTextView1 = (TextView) viewroot.findViewById(R.id.progress_circle_text1);
         CircularProgressBar circularProgressBar = (CircularProgressBar)viewroot.findViewById(R.id.cpb1);
@@ -94,6 +104,8 @@ public class ContentFragment extends Fragment {
         return viewroot;
 
     }
+
+
 
 
     }

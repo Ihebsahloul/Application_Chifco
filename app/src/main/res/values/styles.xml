@@ -14,6 +14,7 @@
         <item name="android:textColorSecondary">@color/TextColor</item>
         <item name="colorAccent">@color/link_text_material_light</item>
         <item name="android:textColorPrimaryInverse">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="colorPrimary">@color/purewhite</item>
         <!-- Customize your theme here. -->
     </style>
 

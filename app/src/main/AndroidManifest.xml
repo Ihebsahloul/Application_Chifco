@@ -20,10 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".Notifications"
+            android:label="Details of notification"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LineView" />
-        <activity android:name=".ListViewMultiChartActivity"></activity>
+
     </application>
 
 </manifest>
