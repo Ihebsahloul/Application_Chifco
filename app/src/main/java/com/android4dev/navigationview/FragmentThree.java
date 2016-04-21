@@ -5,15 +5,21 @@ package com.android4dev.navigationview;
  */
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dacer.androidcharts.LineView;
@@ -60,7 +66,7 @@ public class FragmentThree extends Fragment {
     Line l1 ;
     ArrayList X ,Y ;
 
-
+    Button bouton;
     public static Fragment newInstance(Context context) {
         FragmentThree f = new FragmentThree();
 
@@ -83,8 +89,69 @@ public class FragmentThree extends Fragment {
         chart.animateX(2000,Easing.EasingOption.Linear);
         chart.invalidate();
         chart.setHardwareAccelerationEnabled(true) ;
-
+         bouton = (Button) root.findViewById(R.id.button);
         return root;
+    }
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        final Dialog dial =new Dialog(getActivity());
+        dial.getCurrentFocus();
+
+
+        dial.setContentView(R.layout.popup_layout);
+        final Spinner spinner1 = (Spinner) dial.findViewById(R.id.planets_spinner1);
+        final Spinner spinner2 = (Spinner) dial.findViewById(R.id.planets_spinner2);
+        //select de sqlite
+        List List_spinner1 = new ArrayList();
+        List_spinner1.add("Equipement1");
+        List_spinner1.add("Equipement2");
+        List_spinner1.add("Equipement3");
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner1);
+
+        spinner1.setAdapter(adapter);
+        //select de sqlite avec jointure
+        List List_spinner2 = new ArrayList();
+        List_spinner2.add("Temperature");
+        List_spinner2.add("Consomation");
+        List_spinner2.add("luminosité");
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner2);
+        spinner2.setAdapter(adapter1);
+        dial.show();
+
+        Button button_confirmer =(Button) dial.findViewById(R.id.button1);
+        Button button_annuler =(Button) dial.findViewById(R.id.button2);
+        dial.show();
+
+        button_confirmer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dial.show();
+                DatePicker date = (DatePicker ) dial.findViewById(R.id.datePicker);
+                int Month =date.getMonth();
+                int day = date.getDayOfMonth();
+                int year  = date.getYear();
+                String equipement =spinner1.getSelectedItem().toString();
+                String PropertiName =spinner2.getSelectedItem().toString();
+                // select from DataBase
+                //retour vers le main
+                dial.dismiss();
+
+            }
+        });
+        button_annuler.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //retour vers le main
+                dial.cancel();
+
+            }
+        });
+        bouton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //retour vers le main
+                dial.show();
+
+            }
+        });
     }
 
     /*LineChartView  chart = (LineChartView) root.findViewById(R.id.chart);
