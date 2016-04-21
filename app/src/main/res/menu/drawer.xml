@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+
+
     <group android:id="@+id/group_feature"
         >
         <item
             android:id="@+id/dashboard_item"
-            android:icon="@drawable/ic_dash"
+            android:icon="@drawable/home"
             android:title="Tableau de bord"
             />
     </group>
@@ -13,16 +16,16 @@
        >
         <item
             android:id="@+id/tasks_item"
-            android:icon="@drawable/ic_tasks"
-            android:title="Liste des tâches" />
+            android:icon="@drawable/ic_stats"
+            android:title="Statistiques" />
     </group>
 
     <group android:id="@+id/group_setup"
         >
         <item
             android:id="@+id/stats_item"
-            android:icon="@drawable/ic_stats"
-            android:title="Statistiques"
+            android:icon="@drawable/ic_tasks"
+            android:title="Liste des tâches"
             android:background="@drawable/logochifco"/>
     </group>
 
