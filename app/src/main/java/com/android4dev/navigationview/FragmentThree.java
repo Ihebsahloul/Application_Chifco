@@ -7,6 +7,9 @@ package com.android4dev.navigationview;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -54,7 +57,8 @@ import lecho.lib.hellocharts.view.LineChartView;
 
 public class FragmentThree extends Fragment {
 
-
+    private SQLiteDatabase database;
+    private SQLiteHelper dbHelper;
     CircularProgressBar cpb1 ;
     LineView lineView ;
     ArrayList<ArrayList<String>> dataLists;
@@ -92,6 +96,15 @@ public class FragmentThree extends Fragment {
          bouton = (Button) root.findViewById(R.id.button);
         return root;
     }
+    public void CommentsDataSource(Context context) {
+        dbHelper = new SQLiteHelper(context);
+    }
+    public void open() throws SQLException {
+        database = dbHelper.getWritableDatabase();
+    }
+    public void close() {
+        dbHelper.close();
+    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -103,6 +116,16 @@ public class FragmentThree extends Fragment {
         final Spinner spinner1 = (Spinner) dial.findViewById(R.id.planets_spinner1);
         final Spinner spinner2 = (Spinner) dial.findViewById(R.id.planets_spinner2);
         //select de sqlite
+
+
+        String select_Equipement=" select * from Equipement where condition ";
+        Cursor c = database.rawQuery(select_Equipement, null);
+        c.moveToFirst();
+while(c.moveToNext()){
+    String equipement = c.getString(3);
+
+}
+c.close();
         List List_spinner1 = new ArrayList();
         List_spinner1.add("Equipement1");
         List_spinner1.add("Equipement2");
