@@ -324,6 +324,7 @@ public class FragmentTwo extends Fragment implements SeekBar.OnSeekBarChangeList
    set1.setCircleRadius(4.5f);
    set1.setFillAlpha(65);
    set1.setDrawFilled(true);
+   set1.setDrawValues(false);
    //set1.setFillColor(ColorTemplate.VORDIPLOM_COLORS[2]);
    set1.setHighLightColor(Color.rgb(244, 117, 117));
    //set1.setDrawCircleHole(false);
@@ -343,6 +344,7 @@ public class FragmentTwo extends Fragment implements SeekBar.OnSeekBarChangeList
    set2.setFillColor(ColorTemplate.VORDIPLOM_COLORS[0]);
    //set2.setDrawCircleHole(false);
    set2.setDrawFilled(true);
+   set2.setDrawValues(false);
    set2.setHighLightColor(Color.rgb(244, 117, 117));
    //set2.setFillFormatter(new MyFillFormatter(900f));
 

@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,51 +10,153 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_gravity="center_horizontal"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:weightSum="1">
+
+
 
         <TextView
             android:id="@+id/tv"
-            android:layout_width="fill_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="0dp"
             android:text="Choisir Date, Equipement et la variable pour tracer la courbe"
-            android:gravity="center"
-            android:textSize="16dip"
-            android:textColor="#193f60"
-            />
+            android:gravity="center_horizontal"
+            android:textSize="18dip"
+            android:textStyle="bold"
+            android:textColor="@color/lighterblue"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="0dp"
+        android:layout_margin="8dp"
+        android:weightSum="1">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Variable :"
+        android:gravity="center"
+        android:textSize="18dip"
+        android:textColor="@color/lighterblue"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp" />
+
+
         <Spinner
             android:id="@+id/planets_spinner1"
-            android:layout_width="fill_parent"
-            android:drawSelectorOnTop="true"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tv1"
+            android:layout_toEndOf="@+id/tv1"
+            android:spinnerMode="dropdown"
+            android:touchscreenBlocksFocus="false" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="0dp"
+        android:layout_margin="8dp"
+        android:weightSum="1">
+
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Equipement :"
+            android:gravity="center"
+            android:textSize="18dip"
+            android:textColor="@color/lighterblue"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp" />
         <Spinner
             android:id="@+id/planets_spinner2"
-            android:layout_below="@+id/planets_spinner1"
-            android:drawSelectorOnTop="true"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
 
-        <DatePicker
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/planets_spinner2"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tv3"
+            android:layout_toEndOf="@+id/tv3" />
+
+    </RelativeLayout>
+
+        <view
             android:id="@+id/datePicker"
-            android:layout_gravity="center_horizontal" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            class="com.android4dev.navigationview.CustomDatePicker"
+            android:theme="@style/AppTheme">
+        </view>
+
+
+
+        <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="39dp"
+    android:orientation="horizontal"
+    android:layout_gravity="center"
+    android:layout_marginBottom="0dp"
+    android:layout_margin="0dp"
+    android:weightSum="1"
+            android:clickable="true"
+            android:layout_alignParentBottom="true"
+            android:focusable="true">
+
+
+
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Confirmer"
             android:id="@+id/button1"
-            android:layout_below="@+id/datePicker"
-            android:layout_gravity="center_horizontal" />
+
+
+            android:background="#80ba1a"
+            android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="0.54"
+            android:layout_marginLeft="0dp" />
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Annuler"
             android:id="@+id/button2"
-            android:layout_below="@+id/datePicker"
-            android:layout_gravity="center_horizontal" />
+
+            android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:background="#ea6f51"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0.53" />
+
+</LinearLayout>
 
     </LinearLayout>
 </ScrollView>

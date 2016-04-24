@@ -55,7 +55,7 @@ public class ContentFragment extends Fragment {
 
         RelativeLayout viewroot  = ( RelativeLayout) inflater.inflate(R.layout.content_fragment, container, false);
 
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
 
         TextView txt1 = (TextView)  viewroot.findViewById(R.id.textView2);
