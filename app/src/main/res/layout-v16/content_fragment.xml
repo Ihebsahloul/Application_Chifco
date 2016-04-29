@@ -12,10 +12,6 @@
         android:background="@drawable/toolbar_dropshadow"/>
 
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#eee">
 
 
 
@@ -51,18 +47,21 @@
                     android:layout_height="250dp"
                     android:layout_marginLeft="0dp"
                     android:layout_weight="1"
-                    android:background="#fff"
+                    android:background="@drawable/layerl_ist"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
+
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        >
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="                  Energie          "
+                            android:text="              Energie          "
                             android:textSize="18sp"
                             android:background="#ea6f51"
                             android:id="@+id/textView2"
@@ -113,16 +112,20 @@
 
 
                     </RelativeLayout>
+
+
                 </LinearLayout>
+
+
 
 
 
                 <LinearLayout
                     android:layout_width="50dp"
-                    android:layout_height="252dp"
+                    android:layout_height="250dp"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:background="#fff"
+                    android:background="@drawable/layerl_ist"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -136,12 +139,12 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp"
-                            android:text="   Consommation "
+                            android:text=" Consommation "
                             android:textSize="18sp"
                             android:textColor="#ffffff"
                             android:id="@+id/textView4"
                             android:fontFamily="Myriad Pro"
-                            android:background="@color/colorAccent"
+                            android:background="#FF75A81C"
                             android:paddingTop="3dp"
                             android:paddingBottom="3dp" />
 
@@ -228,9 +231,10 @@
                     android:layout_width="50dp"
                     android:layout_height="165dp"
                     android:layout_weight="1"
-                    android:background="#fff"
+
                     android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@drawable/layerl_ist">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -241,7 +245,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp"
-                            android:text="          Climatiseur"
+                            android:text="       Climatiseur"
                             android:paddingTop="3dp"
                             android:paddingBottom="3dp"
                             android:textColor="#eeeeee"
@@ -288,7 +292,7 @@
                     android:layout_width="50dp"
                     android:layout_height="165dp"
                     android:layout_weight="1"
-                    android:background="#fff"
+                    android:background="@drawable/layerl_ist"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_marginLeft="10dp">
@@ -303,7 +307,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp"
                             android:textColor="#ffffff"
-                            android:text="          Temperature     "
+                            android:text="      Temperature     "
                             android:textSize="18sp"
 
                             android:id="@+id/textView3"
@@ -358,7 +362,7 @@
                     android:layout_width="50dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
-                    android:background="#fff"
+                    android:background="@drawable/layerl_ist"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
@@ -425,9 +429,6 @@
 
 
 
-
-
-    </ScrollView>
 
 
 

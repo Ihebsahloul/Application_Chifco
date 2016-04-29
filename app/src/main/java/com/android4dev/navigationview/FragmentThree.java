@@ -11,15 +11,20 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -61,12 +66,15 @@ public class FragmentThree extends Fragment {
     private SQLiteHelper dbHelper;
     CircularProgressBar cpb1 ;
     LineView lineView ;
+    TextView tv ;
     ArrayList<ArrayList<String>> dataLists;
+    Spinner spinner1 ,spinner2 ;
 
     ArrayList<String> dataList,strList;
     LineChartView  chart ;
     ChartData data1;
     ColumnChartData clm1 ;
+    CustomDatePicker date ;
     Line l1 ;
     ArrayList X ,Y ;
 
@@ -111,30 +119,60 @@ public class FragmentThree extends Fragment {
         final Dialog dial =new Dialog(getActivity());
         dial.getCurrentFocus();
 
+        Typeface typeFace=Typeface.createFromAsset(getActivity().getAssets(),"Fonts/museosans-500.otf");
+
+
+//        int Date =date.getMonth();
+    //    int day = date.getDayOfMonth();
+  //      int year  = date.getYear();
+
+
+        dial.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
 
         dial.setContentView(R.layout.popup_layout);
+
+
+
+
+
+        final TextView tv = (TextView) dial.findViewById(R.id.tv);
+        final TextView tv1 = (TextView) dial.findViewById(R.id.tv1);
+        final TextView tv2 = (TextView) dial.findViewById(R.id.tv3);
+        final  Button bt1 = (Button)  dial.findViewById(R.id.button1);
+        final  Button bt2 = (Button)  dial.findViewById(R.id.button2);
+        Button bt3 = (Button)  getView().findViewById(R.id.button);
+
         final Spinner spinner1 = (Spinner) dial.findViewById(R.id.planets_spinner1);
         final Spinner spinner2 = (Spinner) dial.findViewById(R.id.planets_spinner2);
         //select de sqlite
 
 
-        String select_Equipement=" select * from Equipement where condition ";
-       // Cursor c = database.rawQuery(select_Equipement, null);
-        //c.moveToFirst();
-       // ArrayList<String> list = new ArrayList<String>();
-/*while(c.moveToNext()){
+
+        //spinner1.setTypeface(typeFace);
+        tv.setTypeface(typeFace);
+        bt1.setTypeface(typeFace);
+        bt2.setTypeface(typeFace);
+        bt3.setTypeface(typeFace);
+        tv1.setTypeface(typeFace);
+        tv2.setTypeface(typeFace);
+
+      /* String select_Equipement=" select * from Equipement where condition ";
+        Cursor c = database.rawQuery(select_Equipement, null);
+        c.moveToFirst();
+while(c.moveToNext()){
     String equipement = c.getString(3);
-    list.add(equipement);
-}*/
-//c.close();
+
+}
+c.close();*/
         List List_spinner1 = new ArrayList();
-        List_spinner1.add("Equipement1");
-        List_spinner1.add("Equipement2");
-        List_spinner1.add("Equipement3");
-      //for(String s : list ){
-        //  List_spinner1.add(s);
-      //}
+        List_spinner1.add("TV");
+        List_spinner1.add("Climatiseur");
+        List_spinner1.add("PC");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner1);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
 
         spinner1.setAdapter(adapter);
         //select de sqlite avec jointure
@@ -143,6 +181,7 @@ public class FragmentThree extends Fragment {
         List_spinner2.add("Consomation");
         List_spinner2.add("luminosité");
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner2);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter1);
         dial.show();
 
@@ -152,11 +191,14 @@ public class FragmentThree extends Fragment {
 
         button_confirmer.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                CustomDatePicker date;
+                date = (CustomDatePicker) dial.findViewById(R.id.datePicker);
+
+
+
                 dial.show();
-                DatePicker date = (DatePicker ) dial.findViewById(R.id.datePicker);
-                int Month =date.getMonth();
-                int day = date.getDayOfMonth();
-                int year  = date.getYear();
+
+
                 String equipement =spinner1.getSelectedItem().toString();
                 String PropertiName =spinner2.getSelectedItem().toString();
                 // select from DataBase
@@ -296,5 +338,9 @@ public class FragmentThree extends Fragment {
         return xAxis;
 
     }
+
+
+
+
 
 }
