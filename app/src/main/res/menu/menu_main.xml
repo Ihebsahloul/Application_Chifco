@@ -8,11 +8,23 @@
     android:id="@+id/action_search"
     android:orderInCategory="200"
     android:title="Search"
-    android:icon="@mipmap/search1"
+    android:icon="@mipmap/searchnew"
 
 
     app:showAsAction="ifRoom"
-    ></item>
+    >
 
+</item>
+    <item
+        android:id="@+id/action_left"
+        android:orderInCategory="100"
+        android:title="Left"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_right"
+        android:orderInCategory="100"
+        android:title="Right"
+        app:showAsAction="never" />
 
 </menu>

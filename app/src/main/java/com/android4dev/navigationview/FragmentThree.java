@@ -119,17 +119,21 @@ public class FragmentThree extends Fragment {
 
 
         String select_Equipement=" select * from Equipement where condition ";
-        Cursor c = database.rawQuery(select_Equipement, null);
-        c.moveToFirst();
-while(c.moveToNext()){
+       // Cursor c = database.rawQuery(select_Equipement, null);
+        //c.moveToFirst();
+       // ArrayList<String> list = new ArrayList<String>();
+/*while(c.moveToNext()){
     String equipement = c.getString(3);
-
-}
-c.close();
+    list.add(equipement);
+}*/
+//c.close();
         List List_spinner1 = new ArrayList();
         List_spinner1.add("Equipement1");
         List_spinner1.add("Equipement2");
         List_spinner1.add("Equipement3");
+      //for(String s : list ){
+        //  List_spinner1.add(s);
+      //}
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner1);
 
         spinner1.setAdapter(adapter);
