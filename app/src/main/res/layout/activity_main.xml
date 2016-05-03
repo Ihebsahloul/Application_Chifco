@@ -42,14 +42,11 @@
 
 
         <!-- Real content goes here -->
-        <FrameLayout
+     <FrameLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-
-
-        </FrameLayout>
+     </FrameLayout>
 
 
 
@@ -64,8 +61,6 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/drawer"
         app:theme="@style/NavigationViewStyle"
-
-
         />
 
 

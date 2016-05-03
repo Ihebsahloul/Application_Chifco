@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -7,20 +10,10 @@
     android:layout_height="match_parent">
 
 
+
     <View android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="@drawable/toolbar_dropshadow"/>
-
-
-
-
-
-
-
-
-
-
-
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -91,9 +84,10 @@
                             android:id="@+id/progress_circle_text4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="85 Kwh"
+
                             android:textColor="#ea6f51"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -109,8 +103,6 @@
                             android:layout_below="@+id/progress_circle_text4"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp" />
-
-
                     </RelativeLayout>
 
 
@@ -155,7 +147,7 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="75"
+
                             android:textColor="@color/colorAccent"
                             android:textSize="30sp"
                             android:textStyle="bold"
@@ -190,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:gravity="center"
-                        android:text="60Kw"
+
                         android:textColor="@color/accent_material_light"
                         android:textSize="30sp"
                         android:textStyle="bold"
@@ -261,7 +253,7 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="24°c"
+
                             android:textColor="#FF209FA8"
                             android:textSize="40sp"
                             android:textStyle="bold"
@@ -336,7 +328,7 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="15°c"
+
                             android:textColor="@color/lighterblue"
                             android:textSize="40sp"
                             android:textStyle="bold"
@@ -396,7 +388,7 @@
                             android:layout_height="100dp"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-                            android:text="7"
+
                             android:textColor="#FFE8CA1A"
                             android:textSize="58sp"
                             android:textStyle="bold"
@@ -408,8 +400,7 @@
                         <TextView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="équipements
- connectés"
+                            android:text="équipements connectés"
                             android:id="@+id/textView6"
                             android:textSize="18sp"
                             android:textColor="#FFE8CA1A"
@@ -422,18 +413,6 @@
 
             </LinearLayout>
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </RelativeLayout>
+    </ScrollView>
+
