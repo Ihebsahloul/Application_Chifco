@@ -9,8 +9,10 @@ package com.android4dev.navigationview;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.PaintDrawable;
 import android.net.Uri;
@@ -25,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,8 +41,13 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class FragmentFour extends Fragment {
 /*
@@ -50,13 +58,26 @@ public class FragmentFour extends Fragment {
 
         return f;
     }*/
-private View  root = null;
+
+    public FragmentFour() {
+    }
+
+
+    //private View  root = null;
     private List<String> mAppList =  new ArrayList<String>();
     private AppAdapter mAdapter;
     private SwipeMenuListView mListView;
+    private View rootView = null;
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-         root =  inflater.inflate(R.layout.fragment_four, null);
+        rootView = (View) inflater.inflate(R.layout.fragment_four, null);
+
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+        Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
 
      /*   BarChart chart = (BarChart) root.findViewById(R.id.chart);
 
@@ -71,18 +92,49 @@ private View  root = null;
         chart.invalidate();
 */
 
+        return rootView ;
 
-        mAppList.add("item 1");
-        mAppList.add("item 2");
-        mAppList.add("item 3");
-        mAppList.add("item 4");
-        mAppList.add("item 5");
-        mAppList.add("item 6");
-        mAppList.add("item 7");
-        mAppList.add("item 8");
-        mAppList.add("item 9");
-        mAppList.add("item 10");
-        mListView = (SwipeMenuListView) root.findViewById(R.id.listView);
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onActivityCreated(savedInstanceState);
+
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+        Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
+
+
+        SwipeMenuListView mListView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
+        TextView title = (TextView) getActivity().findViewById((R.id.title))  ;
+        title.setTypeface(tf1) ;
+
+
+        mAppList =  new ArrayList<String>();
+        mAdapter = new AppAdapter();
+        mListView.setAdapter(mAdapter);
+
+
+
+
+        mAppList.add("Prise-TV");
+        mAppList.add("Prise-PC");
+        mAppList.add("Prise-Climatiseur");
+       // mAppList.add("Prise-Hotte");
+        mAppList.add("Prise-Réfrigérateur");
+        mAppList.add("Prise-M.Laver");
+        mAppList.add("Prise-Cafétière");
+       // mAppList.add("item 8");
+        //mAppList.add("item 9");
+       // mAppList.add("item 10");
+
+
+
+
+
+            mAdapter = new AppAdapter();
+            mListView.setAdapter(mAdapter);
 
         // step 1. create a MenuCreator
         SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -98,7 +150,7 @@ private View  root = null;
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
-                openItem.setTitle("Open");
+                openItem.setTitle("Ouvrir");
                 // set item title fontsize
                 openItem.setTitleSize(18);
                 // set item title font color
@@ -118,6 +170,7 @@ private View  root = null;
                 deleteItem.setIcon(R.drawable.trash);
                 // add to menu
                 menu.addMenuItem(deleteItem);
+
             }
         };
         // set creator
@@ -183,7 +236,7 @@ private View  root = null;
             }
         });
         //mListView.bringToFront();
-        return root;
+
     }
 
   /*  private ArrayList<BarDataSet> getDataSet() {
@@ -298,14 +351,25 @@ private View  root = null;
             }
             ViewHolder holder = (ViewHolder) convertView.getTag();
             String item = getItem(position);
-            //holder.iv_icon.setImageDrawable(item.loadIcon(getPackageManager()));
+
+
+           // holder.iv_icon1.setImageDrawable(item.loadIcon(getActivity().getPackageManager()));
+            //holder.tv_name.setText(item.loadLabel(getActivity().getPackageManager()));
+
+            //holder.iv_icon1.setImageDrawable(item.loadIcon(getPackageManager()));
             holder.tv_name.setText(item);
-            holder.iv_icon.setOnClickListener(new View.OnClickListener() {
+            holder.iv_icon1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     //Toast.makeText(SimpleActivity.this, "iv_icon_click", Toast.LENGTH_SHORT).show();
+
+
+
                 }
             });
+
+
+
             holder.tv_name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -316,12 +380,27 @@ private View  root = null;
         }
 
         class ViewHolder {
-            ImageView iv_icon;
+            ImageView iv_icon1 ,iv_icon2 ,  iv_icon3 ,  iv_icon4 , iv_icon5 ,   iv_icon6  ;
             TextView tv_name;
 
             public ViewHolder(View view) {
-                iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
+
+
+
+                iv_icon1 = (ImageView) view.findViewById(R.id.iv_icon1);
+               /* iv_icon2 = (ImageView) view.findViewById(R.id.iv_icon2);
+                iv_icon3 = (ImageView) view.findViewById(R.id.iv_icon3);
+                iv_icon4 = (ImageView) view.findViewById(R.id.iv_icon4);
+                iv_icon5 = (ImageView) view.findViewById(R.id.iv_icon5);
+                iv_icon6 = (ImageView) view.findViewById(R.id.iv_icon6);*/
+               // iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
+
+
                 tv_name = (TextView) view.findViewById(R.id.tv_name);
+
+                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+                Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
+                tv_name.setTypeface(tf1);
                 view.setTag(this);
             }
         }
