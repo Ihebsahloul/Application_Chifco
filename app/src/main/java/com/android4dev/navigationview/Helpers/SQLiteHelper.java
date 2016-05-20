@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Helpers;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

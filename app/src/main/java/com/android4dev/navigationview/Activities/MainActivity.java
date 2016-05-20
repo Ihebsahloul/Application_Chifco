@@ -1,31 +1,20 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Activities;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.android4dev.navigationview.Fragments.ContentFragment;
+import com.android4dev.navigationview.Fragments.FragmentFour;
+import com.android4dev.navigationview.Fragments.FragmentThree;
+import com.android4dev.navigationview.Fragments.FragmentTwo;
+import com.android4dev.navigationview.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.tunisia) ;
+//        toolbar.setNavigationIcon(R.drawable.tunisia) ;
         getSupportActionBar().setLogo(R.drawable.smartlife);
         //toolbar.setSearchIcon(R.id.)
         //toolbar.setTitle("Smart Life");
@@ -89,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //Replacing the main content with ContentFragment Which is our Inbox View;
                     case R.id.dashboard_item:
-                        Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
                         ContentFragment fragment1 = new ContentFragment();
                         android.support.v4.app.FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction1.replace(R.id.frame, fragment1);
@@ -99,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     // For rest of the options we just show a toast on click
 
                     case R.id.tasks_item:
-                        Toast.makeText(getApplicationContext(), "test2 Selected", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "test2 Selected", Toast.LENGTH_SHORT).show();
                         FragmentTwo fragment2 = new FragmentTwo();
                         android.support.v4.app.FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction2.replace(R.id.frame, fragment2);
@@ -108,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     case R.id.stats_item:
-                        Toast.makeText(getApplicationContext(), "test3 Selected", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "test3 Selected", Toast.LENGTH_SHORT).show();
                         FragmentThree fragment3 = new FragmentThree();
                         android.support.v4.app.FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction3.replace(R.id.frame, fragment3);
@@ -116,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.notifs_item:
-                        Toast.makeText(getApplicationContext(), "test4 Selected", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "test4 Selected", Toast.LENGTH_SHORT).show();
                         FragmentFour fragment4 = new FragmentFour();
                         android.support.v4.app.FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction4.replace(R.id.frame, fragment4);
@@ -124,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_send:
-                        Toast.makeText(getApplicationContext(), "quit Selected", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplicationContext(), "quit Selected", Toast.LENGTH_SHORT).show();
                         return true;
 
 
                     default:
-                        Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
                         ContentFragment fragment5 = new ContentFragment();
                         android.support.v4.app.FragmentTransaction fragmentTransaction5 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction5.replace(R.id.frame, fragment5);
@@ -171,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.add(0, 101, 0, "Quitter");
+        menu.add(0, 101, 0, "Quitter").setIcon(android.R.drawable.ic_delete) ;
         return true;
     }
 

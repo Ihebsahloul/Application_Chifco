@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Activities;
 import android.graphics.Color;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android4dev.navigationview.R;
 
 
 public class CollapsingToolbarActivity extends AppCompatActivity

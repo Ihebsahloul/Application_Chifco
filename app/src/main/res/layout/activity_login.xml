@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="#ffff">
 
     <LinearLayout
         android:orientation="vertical"
@@ -14,9 +15,9 @@
 
 
         <ImageView
-            android:src="@drawable/smartlife"
+            android:src="@drawable/smartlifenew"
             android:layout_width="189dp"
-            android:layout_height="75dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="0dp"
             android:layout_gravity="center_horizontal" />
 
@@ -59,6 +60,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
+            style="style/Widget.AppCompat.Button.Colored"
             android:id="@+id/btn_login"
             android:layout_width="260dp"
             android:layout_height="wrap_content"

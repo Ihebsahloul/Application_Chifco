@@ -56,7 +56,7 @@
          android:layout_marginLeft="10dp"
          android:layout_toRightOf="@+id/iv_icon1"
          android:text="name"
-         android:textColor="@color/TextColor"
+         android:textColor="@color/black"
          android:textSize="18sp" />
         </RelativeLayout>
 

@@ -3,23 +3,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
     <View android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="@drawable/toolbar_dropshadow"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="9dp"
+        android:layout_marginBottom="0dp">
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/purewhite">
+
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sss" />
+
+            <TextView
+                android:id="@+id/item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/thumbnail"
+                android:maxLines="3"
+                android:padding="0dp"
+                android:text="Smart Dashboard "
+                android:textColor="@color/blue"
+                android:textStyle="normal|bold"
+                android:textSize="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="0dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp" />
+
+            <!--<TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item"
+                android:maxLines="3"
+                android:padding="0dp"
+                android:text="Choisisser les actions automatiques que vous voulez effectuer sur vos équipements et appuyer
+sur Confimer "
+
+                android:textSize="14dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingTop="0dp"
+                android:id="@+id/title1"
+                android:layout_marginBottom="7dp" />-->
+
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+
+
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="9dp"
             android:baselineAligned="false"
             android:weightSum="1">
 
@@ -33,11 +108,11 @@
                 android:orientation="horizontal"
                 android:paddingBottom="10dp"
                 android:paddingTop="0dp"
-                android:layout_marginTop="5dp">
+                android:layout_marginTop="0dp">
 
                 <LinearLayout
                     android:layout_width="100dp"
-                    android:layout_height="250dp"
+                    android:layout_height="220dp"
                     android:layout_marginLeft="0dp"
                     android:layout_weight="1"
                     android:background="@drawable/layerl_ist"
@@ -68,17 +143,17 @@
 
                         <com.mikhaellopez.circularprogressbar.CircularProgressBar
                             android:layout_width="match_parent"
-                            android:layout_height="175dp"
+                            android:layout_height="155dp"
                             app:cpb_background_progressbar_color="#FFCDD2"
                             app:cpb_background_progressbar_width="2dp"
                             app:cpb_progressbar_color="#ea6f51"
                             android:id="@+id/cpb1"
-                            app:cpb_progressbar_width="4dp"
+                            app:cpb_progressbar_width="5dp"
                             android:layout_gravity="center"
                             android:layout_alignWithParentIfMissing="false"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="50dp" />
+                            android:layout_marginTop="45dp" />
 
                         <TextView
                             android:id="@+id/progress_circle_text4"
@@ -89,15 +164,15 @@
                             android:gravity="center"
 
                             android:textColor="#ea6f51"
-                            android:textSize="30sp"
+                            android:textSize="34sp"
                             android:textStyle="bold"
-                            android:paddingTop="70dp"
+                            android:paddingTop="60dp"
                             android:layout_below="@+id/textView2"
                             android:layout_centerHorizontal="true" />
 
                         <ImageView
                             android:layout_width="60dp"
-                            android:layout_height="70dp"
+                            android:layout_height="60dp"
                             android:id="@+id/imageView8"
                             android:src="@drawable/consume"
                             android:layout_below="@+id/progress_circle_text4"
@@ -113,8 +188,8 @@
 
 
                 <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_height="250dp"
+                    android:layout_width="54dp"
+                    android:layout_height="220dp"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/layerl_ist"
@@ -135,7 +210,6 @@
                             android:textSize="18sp"
                             android:textColor="#ffffff"
                             android:id="@+id/textView4"
-                            android:fontFamily="Myriad Pro"
                             android:background="#FF75A81C"
                             android:paddingTop="3dp"
                             android:paddingBottom="3dp" />
@@ -155,7 +229,7 @@
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:layout_marginTop="10dp"
-                            android:layout_marginLeft="50dp" />
+                            android:layout_marginLeft="40dp" />
                     </RelativeLayout>
 
 
@@ -189,7 +263,7 @@
                         android:layout_below="@+id/textView5"
                         android:layout_alignLeft="@+id/textView5"
                         android:layout_alignStart="@+id/textView5"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginTop="10dp" />
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -237,7 +311,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp"
-                            android:text="       Climatiseur"
+                            android:text="         Climatiseur"
                             android:paddingTop="3dp"
                             android:paddingBottom="3dp"
                             android:textColor="#eeeeee"
@@ -253,10 +327,9 @@
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
                             android:gravity="center"
-
+                            android:text="24°c"
                             android:textColor="#FF209FA8"
                             android:textSize="40sp"
-                            android:textStyle="bold"
                             android:layout_below="@+id/textView5"
                             android:layout_alignLeft="@+id/textView5"
                             android:layout_alignStart="@+id/textView5"
@@ -313,7 +386,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="12dp"
-                            android:background="@drawable/temp3"
+                            android:background="@drawable/weather"
                             android:indeterminate="false"
                             android:indeterminateDuration="1"
                             android:max="100"
@@ -368,8 +441,8 @@
                             android:id="@+id/progressBar11"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="62dp"
-                            android:layout_height="69dp"
-                            android:background="@drawable/sensor"
+                            android:layout_height="62dp"
+                            android:background="@drawable/alerts"
                             android:indeterminate="false"
                             android:indeterminateDuration="1"
                             android:max="100"
@@ -379,7 +452,7 @@
                             android:layout_alignTop="@+id/progress_circle_text11"
                             android:layout_toRightOf="@+id/textView6"
                             android:layout_toEndOf="@+id/textView6"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp" />
 
                         <TextView
@@ -389,9 +462,9 @@
                             android:background="@android:color/transparent"
                             android:gravity="center"
 
-                            android:textColor="#FFE8CA1A"
-                            android:textSize="58sp"
-                            android:textStyle="bold"
+                            android:textColor="#ffca2a"
+                            android:textSize="50sp"
+
 
                             android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
@@ -400,19 +473,19 @@
                         <TextView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="équipements connectés"
+                            android:text="Notifications disponibles "
                             android:id="@+id/textView6"
                             android:textSize="18sp"
-                            android:textColor="#FFE8CA1A"
+                            android:textColor="@color/orange"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@+id/progress_circle_text11"
                             android:layout_toEndOf="@+id/progress_circle_text11"
-                            android:layout_marginLeft="5dp" />
+                            android:layout_marginLeft="7dp" />
                     </RelativeLayout>
                 </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
     </ScrollView>
 

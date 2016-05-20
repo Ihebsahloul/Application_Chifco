@@ -4,7 +4,6 @@ package com.android4dev.navigationview;
 
         import java.util.ArrayList;
         import java.util.Collections;
-
         import android.content.Context;
         import android.graphics.Canvas;
         import android.graphics.Color;
@@ -58,7 +57,7 @@ public class LineView extends View {
     private Dot pointToSelect;
     private Dot selectedDot;
 
-    private int topLineLength = MyUtils.dip2px(getContext(), 12);; // | | ←this
+    private int topLineLength = MyUtils.dip2px(getContext(), 12); // | | ←this
     //-+-+-
     private int sideLineLength = MyUtils.dip2px(getContext(),45)/3*2;// --+--+--+--+--+--+--
     //  ↑this

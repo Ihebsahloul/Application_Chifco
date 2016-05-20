@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Fragments;
 
 /**
  * Created by ihebs on 14/04/2016.
@@ -7,7 +7,6 @@ package com.android4dev.navigationview;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -15,34 +14,22 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.android4dev.navigationview.CustomDatePicker;
+import com.android4dev.navigationview.R;
+import com.android4dev.navigationview.Helpers.SQLiteHelper;
 import com.dacer.androidcharts.LineView;
 
-import com.db.chart.model.LineSet;
-import com.db.chart.model.Point;
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.LimitLine;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -55,9 +42,6 @@ import java.util.List;
 import lecho.lib.hellocharts.model.ChartData;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.view.Chart;
 import lecho.lib.hellocharts.view.LineChartView;
 
 public class FragmentThree extends Fragment {
@@ -120,6 +104,7 @@ public class FragmentThree extends Fragment {
         dial.getCurrentFocus();
 
         Typeface typeFace=Typeface.createFromAsset(getActivity().getAssets(),"Fonts/museosans-500.otf");
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/Roboto-Bold.ttf") ;
 
 
 //        int Date =date.getMonth();
@@ -150,12 +135,12 @@ public class FragmentThree extends Fragment {
 
 
         //spinner1.setTypeface(typeFace);
-        tv.setTypeface(typeFace);
-        bt1.setTypeface(typeFace);
-        bt2.setTypeface(typeFace);
+        tv.setTypeface(tf3);
+        bt1.setTypeface(tf3);
+        bt2.setTypeface(tf3);
         bt3.setTypeface(typeFace);
-        tv1.setTypeface(typeFace);
-        tv2.setTypeface(typeFace);
+        tv1.setTypeface(tf3);
+        tv2.setTypeface(tf3);
 
       /* String select_Equipement=" select * from Equipement where condition ";
         Cursor c = database.rawQuery(select_Equipement, null);

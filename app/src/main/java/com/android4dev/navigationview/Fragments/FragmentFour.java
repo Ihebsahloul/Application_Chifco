@@ -1,4 +1,4 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Fragments;
 
 /**
  * Created by ihebs on 14/04/2016.
@@ -18,6 +18,8 @@ import android.graphics.drawable.PaintDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,19 +33,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android4dev.navigationview.R;
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
+//import com.daimajia.swipe.util.Attributes;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+//import com.shamanland.fab.FloatingActionButton;
+//import com.shamanland.fab.ShowHideOnScroll;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -68,16 +75,31 @@ public class FragmentFour extends Fragment {
     private AppAdapter mAdapter;
     private SwipeMenuListView mListView;
     private View rootView = null;
+    private TextView title , desc ;
 
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        rootView = (View) inflater.inflate(R.layout.fragment_four, null);
+        rootView = inflater.inflate(R.layout.fragment_four, null);
 
+
+
+
+       // title = (TextView) getActivity().findViewById(R.id.title);
+        //desc = (TextView) getActivity().findViewById(R.id.title1);
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
+        Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;
+
+
+
+
+
+
+
 
      /*   BarChart chart = (BarChart) root.findViewById(R.id.chart);
 
@@ -102,18 +124,34 @@ public class FragmentFour extends Fragment {
         // TODO Auto-generated method stub
         super.onActivityCreated(savedInstanceState);
 
+        RecyclerView recyclerView ;
+
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
 
+        Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;
 
         SwipeMenuListView mListView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
-        TextView title = (TextView) getActivity().findViewById((R.id.title))  ;
-        title.setTypeface(tf1) ;
+        TextView title = (TextView) getActivity().findViewById((R.id.item))  ;
+        TextView title1 = (TextView) getActivity().findViewById((R.id.title))  ;
+       // /FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+       // fab.attachToListView(mListView);
+        //mListView.setOnTouchListener(new ShowHideOnScroll(fab));
+        //mListView.setOnTouchListener(new ShowHideOnScroll(fab, R.anim.custom_show, R.anim.custom_hide));
+        //title.setTypeface(tf1) ;
 
 
-        mAppList =  new ArrayList<String>();
-        mAdapter = new AppAdapter();
-        mListView.setAdapter(mAdapter);
+       // title1 = (TextView) getActivity().findViewById(R.id.title);
+        desc = (TextView) getActivity().findViewById(R.id.title1);
+
+       // title.setTypeface(tf3);
+        desc.setTypeface(tf2) ;
+
+
+
+        // Item Decorator:
+
 
 
 
@@ -150,9 +188,9 @@ public class FragmentFour extends Fragment {
                 // set item width
                 openItem.setWidth(dp2px(90));
                 // set item title
-                openItem.setTitle("Ouvrir");
+                openItem.setTitle("Changer le temps d'éxécution");
                 // set item title fontsize
-                openItem.setTitleSize(18);
+                openItem.setTitleSize(10);
                 // set item title font color
                 openItem.setTitleColor(Color.WHITE);
                 // add to menu
@@ -166,8 +204,9 @@ public class FragmentFour extends Fragment {
                         0x3F, 0x25)));
                 // set item width
                 deleteItem.setWidth(dp2px(90));
+
                 // set a icon
-                deleteItem.setIcon(R.drawable.trash);
+                deleteItem.setIcon(R.drawable.trash1);
                 // add to menu
                 menu.addMenuItem(deleteItem);
 
@@ -381,7 +420,7 @@ public class FragmentFour extends Fragment {
 
         class ViewHolder {
             ImageView iv_icon1 ,iv_icon2 ,  iv_icon3 ,  iv_icon4 , iv_icon5 ,   iv_icon6  ;
-            TextView tv_name;
+            TextView tv_name , title , desc;
 
             public ViewHolder(View view) {
 
@@ -398,19 +437,23 @@ public class FragmentFour extends Fragment {
 
                 tv_name = (TextView) view.findViewById(R.id.tv_name);
 
+
                 Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
                 Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
-                tv_name.setTypeface(tf1);
+                Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
+                Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf");
+               // tv_name.setTypeface(tf2);
+
+
+
+
                 view.setTag(this);
             }
         }
 
         // @Override
         public boolean getSwipEnableByPosition(int position) {
-            if(position % 2 == 0){
-                return false;
-            }
-            return true;
+            return position % 2 != 0;
         }
     }
 
@@ -429,14 +472,7 @@ public class FragmentFour extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_left) {
-            mListView.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
-            return true;
-        }
-        if (id == R.id.action_right) {
-            mListView.setSwipeDirection(SwipeMenuListView.DIRECTION_RIGHT);
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -13,19 +13,29 @@
         <item name="android:colorForeground">@color/TextColor</item>
         <item name="android:textColorSecondary">@color/TextColor</item>
         <item name="colorAccent">@color/link_text_material_light</item>
-        <item name="android:textColorPrimaryInverse">@color/abc_primary_text_disable_only_material_dark</item>
+        <item name="android:textColorPrimaryInverse">
+            @color/abc_primary_text_disable_only_material_dark
+        </item>
         <item name="colorPrimary">@color/purewhite</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="fgfdgfdgfdgfd" parent="Theme.AppCompat.Light.NoActionBar" />
 
-    <style name="new_theme" parent="Theme.AppCompat.Light.NoActionBar" >
+    <style name="new_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorPrimary">@color/TextColor</item>
     </style>
 
-    <style name="dialog" parent="AppTheme" >
+    <style name="dialog" parent="AppTheme">
         <item name="colorAccent">@color/lighterblue</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FAB" parent="AppTheme" >
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 </resources>

@@ -1,40 +1,25 @@
-package com.android4dev.navigationview;
+package com.android4dev.navigationview.Fragments;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.android4dev.navigationview.Datamanagers.Dashboard_webservice;
+import com.android4dev.navigationview.Datamanagers.Results;
+import com.android4dev.navigationview.R;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
-import com.txusballesteros.widgets.FitChart;
-import com.txusballesteros.widgets.FitChartValue;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-import retrofit.Callback;
 import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 
 /**
@@ -62,11 +47,11 @@ public class ContentFragment extends Fragment {
         //RestAdapter adapter = new RestAdapter.Builder().setEndpoint(GithubService.ENDPOINT).build();
        // final GithubService restInterface = adapter.create(GithubService.class);
 
-        GithubService githubService = new RestAdapter.Builder()
-                .setEndpoint(GithubService.ENDPOINT)
+        Results.GithubService githubService = new RestAdapter.Builder()
+                .setEndpoint(Results.GithubService.ENDPOINT)
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build()
-                .create(GithubService.class);
+                .create(Results.GithubService.class);
 
 
         new ListReposTask().execute("2311","month","42a594aa09b9d7581a0b74e7ad4940e7");
@@ -74,8 +59,12 @@ public class ContentFragment extends Fragment {
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/Roboto-Bold.ttf") ;
         TextView txt1 = (TextView)  viewroot.findViewById(R.id.textView2);
         TextView txt2 = (TextView)  viewroot.findViewById(R.id.textView3);
+        TextView txt3 = (TextView)  viewroot.findViewById(R.id.textView4);
+        TextView txt11 = (TextView)  viewroot.findViewById(R.id.item);
+
         TextView txt4 = (TextView)  viewroot.findViewById(R.id.textView5);
         TextView txt5 = (TextView)  viewroot.findViewById(R.id.progress_circle_text);
         TextView txt7 = (TextView)  viewroot.findViewById(R.id.progress_circle_text3);
@@ -86,12 +75,16 @@ public class ContentFragment extends Fragment {
 
         txt1.setTypeface(tf);
         txt2.setTypeface(tf);
+        txt3.setTypeface(tf);
         txt4.setTypeface(tf);
         txt5.setTypeface(tf1);
         txt7.setTypeface(tf1);
+        txt11.setTypeface(tf3);
+
+        progressingTextView1.setTypeface(tf1);
 
         //txt9.setTypeface(tf1);
-        txt10.setTypeface(tf1);
+        txt10.setTypeface(tf);
 
         final TextView energy = (TextView)  viewroot.findViewById(R.id.progress_circle_text4);
         final TextView notification = (TextView)  viewroot.findViewById(R.id.progress_circle_text11);
@@ -105,7 +98,7 @@ public class ContentFragment extends Fragment {
         energy.setTypeface(tf1);
         CO2.setTypeface(tf);
         energy.setTypeface(tf1);
-        temperature.setTypeface(tf);
+        temperature.setTypeface(tf1);
 /*
         restInterface.setdmainpage("2311","month","42a594aa09b9d7581a0b74e7ad4940e7", new Callback<Dashboard_webservice>() {
             @Override
@@ -145,16 +138,16 @@ public class ContentFragment extends Fragment {
 
 
     class ListReposTask extends AsyncTask<String,Void,Dashboard_webservice> {
-        final ProgressDialog mProgressDialog = ProgressDialog.show(getActivity(), "Please wait","Long operation starts...", true);
+        final ProgressDialog mProgressDialog = ProgressDialog.show(getActivity(), "Chargement","Long operation starts...", true);
        private final String TAG = ListReposTask.class.getSimpleName();
         Thread th;
         @Override
         protected Dashboard_webservice doInBackground(String...params) {
 
-            GithubService githubService = new RestAdapter.Builder()
-                    .setEndpoint(GithubService.ENDPOINT)
+            Results.GithubService githubService = new RestAdapter.Builder()
+                    .setEndpoint(Results.GithubService.ENDPOINT)
                     .build()
-                    .create(GithubService.class);
+                    .create(Results.GithubService.class);
 
             Dashboard_webservice dashboard = githubService.setdmainpage(params[0],params[1],params[2]);
             Log.d(TAG,"Tabka Tabka");
@@ -169,7 +162,7 @@ public class ContentFragment extends Fragment {
              th =new Thread((new Runnable() {
                 @Override
                 public void run() {
-                    mProgressDialog.setMessage("wait please ;)");
+                    mProgressDialog.setMessage("Veuillez Patientez");
 
                 }
             }));
@@ -180,12 +173,19 @@ public class ContentFragment extends Fragment {
             super.onPostExecute(dashboard);
             mProgressDialog.dismiss();
             th.interrupt();
+
+            Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
+            Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
             final TextView energy = (TextView)  getView().findViewById(R.id.progress_circle_text4);
             final TextView notification = (TextView)  getView().findViewById(R.id.progress_circle_text11);
             final TextView power = (TextView)  getView().findViewById(R.id.textView);
             final TextView energy2 = (TextView)  getView().findViewById(R.id.textView4);
             final TextView CO2 = (TextView)  getView().findViewById(R.id.progress_circle_text1);
             final TextView temperature  = (TextView) getView().findViewById(R.id.progress_circle_text);
+
+            CO2.setTypeface(tf1);
+
+
 
             notification.append(dashboard.getResults().getNotification().toString());
             power.append(dashboard.getResults().getPower().toString());
@@ -196,8 +196,12 @@ public class ContentFragment extends Fragment {
             CircularProgressBar circularProgressBar = (CircularProgressBar)getView().findViewById(R.id.cpb1);
 
 
+            double energyvalue =  dashboard.getResults().getEnergy() ;
+
+            float energyfloat = (float) energyvalue ;
+
             int animationDuration = 2500; // 2500ms = 2,5s
-            circularProgressBar.setProgressWithAnimation(80, animationDuration);
+            circularProgressBar.setProgressWithAnimation(energyfloat, animationDuration);
 
             //intent2.putExtra(nom_str, box.getBoxName());
 

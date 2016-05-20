@@ -8,7 +8,7 @@
         >
         <item
             android:id="@+id/dashboard_item"
-            android:icon="@drawable/ic_home_black"
+            android:icon="@drawable/ic_dash"
             android:title="Tableau de bord"
             />
     </group>
@@ -16,16 +16,16 @@
        >
         <item
             android:id="@+id/tasks_item"
-            android:icon="@drawable/ic_stats"
-            android:title="Statistiques" />
+            android:icon="@drawable/ic_tasks"
+            android:title="Smart Control" />
     </group>
 
     <group android:id="@+id/group_setup"
         >
         <item
             android:id="@+id/stats_item"
-            android:icon="@drawable/ic_tasks"
-            android:title="Liste des tâches"
+            android:icon="@drawable/ic_stats"
+            android:title="Prévisions"
             android:background="@drawable/logochifco"/>
     </group>
 
@@ -41,11 +41,11 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="A propos" />
+                android:icon="@drawable/share"
+                android:title="Partager" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Déconnexion" />
         </menu>
     </item>
