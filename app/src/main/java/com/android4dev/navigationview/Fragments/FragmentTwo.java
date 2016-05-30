@@ -3,13 +3,18 @@ package com.android4dev.navigationview.Fragments;
 /**
  * Created by ihebs on 14/04/2016.*/
  import android.app.Dialog;
+ import android.app.ProgressDialog;
  import android.content.Context;
  import android.content.DialogInterface;
  import android.graphics.Typeface;
+ import android.os.AsyncTask;
  import android.os.Bundle;
 
+ import com.android4dev.navigationview.Actions;
  import com.android4dev.navigationview.Adapters.SwipeRecyclerViewAdapter;
  import com.android4dev.navigationview.Datamanagers.Action ;
+
+ import android.support.annotation.Nullable;
  import android.support.design.widget.CoordinatorLayout;
  import android.support.design.widget.FloatingActionButton;
  import android.support.v4.app.Fragment;
@@ -28,30 +33,37 @@ package com.android4dev.navigationview.Fragments;
  import android.widget.TextView;
  import android.widget.Toast;
 
+ import com.android4dev.navigationview.Datamanagers.Dashboard_webservice;
+ import com.android4dev.navigationview.Datamanagers.Results;
  import com.android4dev.navigationview.DividerItemDecoration;
  import com.android4dev.navigationview.R;
+ import com.android4dev.navigationview.Result_Action;
  import com.daimajia.swipe.util.Attributes;
  import com.github.mikephil.charting.charts.LineChart;
+ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
  import java.util.ArrayList;
  import java.util.Arrays;
+ import java.util.List;
+
+ import retrofit.RestAdapter;
 
  import static com.android4dev.navigationview.R.*;
 
 public class FragmentTwo extends Fragment{
-
+ List<Result_Action> liste = new ArrayList<Result_Action>();
 
  private LineChart[] mCharts = new LineChart[4];
  private Arrays mMonths;
  private Typeface mTf;
  TextView txt1 ,txt2,txt3,txt4 ,txt5 ;
-
+ private final String TAG = ListReposTask.class.getSimpleName();
 
  private LineChart mChart;
  private SeekBar mSeekBarX, mSeekBarY;
  private TextView tvX, tvY;
 // RecyclerView mRecyclerView;
- private ArrayList<Action> mDataSet;
+ private ArrayList<Action> mDataSet ;
 
  private Toolbar toolbar;
 
@@ -69,25 +81,20 @@ public class FragmentTwo extends Fragment{
  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
   ViewGroup root = (ViewGroup) inflater.inflate(layout.fragment_two, null);
 
- /* mRecyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
-  final  LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-  //layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-  mRecyclerView.setLayoutManager(layoutManager);
-  setUpRecyclerView();*/
+  Results.GithubService githubService = new RestAdapter.Builder()
+          .setEndpoint(Results.GithubService.ENDPOINT)
+          .setLogLevel(RestAdapter.LogLevel.FULL)
+          .build()
+          .create(Results.GithubService.class);
 
-
-  //setContentView(layout.swipe);
-
-
-
+  new ListReposTask().execute("120268","2016-05-16");
   return root ;
 
  }
-
  @Override
- public void onActivityCreated(Bundle savedInstanceState) {
-  // TODO Auto-generated method stub
-  super.onActivityCreated(savedInstanceState);
+ public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+  super.onViewCreated(view, savedInstanceState);
+
 
   final Dialog dial =new Dialog(getActivity());
   dial.getCurrentFocus();
@@ -105,28 +112,18 @@ public class FragmentTwo extends Fragment{
 
   // Item Decorator:
   mRecyclerView.addItemDecoration(new DividerItemDecoration(getResources().getDrawable(R.drawable.divider)));
-  // mRecyclerView.setItemAnimator(new FadeInLeftAnimator());
 
 
   final FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
 
- // FloatingActionButton myFab = (FloatingActionButton) myView.findViewById(R.id.myFAB);
   fab.setOnClickListener(new View.OnClickListener() {
    public void onClick(View v) {
-   comfirm();
+    comfirm();
    }
   });
-  //fab.AttachtoRecyclerView(mRecyclerView);
-
-
- // final  FloatingActionButton button = (FloatingActionButton) getActivity().findViewById(R.id.setter);
-
 
 
   mDataSet = new ArrayList<Action>();
-
-
-
 
 
   loadData();
@@ -145,13 +142,12 @@ public class FragmentTwo extends Fragment{
   SwipeRecyclerViewAdapter mAdapter = new SwipeRecyclerViewAdapter(getActivity(), mDataSet);
 
 
-  // Setting Mode to Single to reveal bottom View for one item in List
-  // Setting Mode to Mutliple to reveal bottom Views for multile items in List
+
   ((SwipeRecyclerViewAdapter) mAdapter).setMode(Attributes.Mode.Single);
 
   mRecyclerView.setAdapter(mAdapter);
 
-        /* Scroll Listeners */
+  // Scroll Listeners
   mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
    @Override
    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -167,12 +163,18 @@ public class FragmentTwo extends Fragment{
  }
 
 
+
  // load initial data
  public void loadData() {
 
-  for (int i = 0; i <= 20; i++) {
-   mDataSet.add(new Action("Action " + i, "Date" + i ));
+   mDataSet.add(new Action("Action " , "Date" ));
 
+
+  for(Result_Action ac :  liste ){
+   //mDataSet.add(new Action( ac.getEquipementID().toString(),ac.getDate().toString() ));
+   Log.d(TAG,"message: "+ac.getEquipementID().toString());
+   mDataSet.add(new Action(ac.getEquipementID().toString()+" Etat: "+ac.getValue().toString(),ac.getDate().toString()));
+   Log.d(TAG,ac.getDate().toString());
   }
 
 
@@ -195,29 +197,6 @@ public void comfirm()
 
 
 
- /**
-  * We're gonna setup another ItemDecorator that will draw the red background in the empty space while the items are animating to thier new positions
-  * after an item is removed.
-  */
-
-
-    // only if animation is in progress
-
-
-     // some items might be animating down and some items might be animating up to close the gap left by the removed item
-     // this is not exclusive, both movement can be happening at the same time
-     // to reproduce this leave just enough items so the first one and the last one would be just a little off screen
-     // then remove one from the middle
-
-     // find first child with translationY > 0
-     // and last one with translationY < 0
-     // we're after a rect that is not covered in recycler-view views at this point in time
-
-
-
- /**
-  * RecyclerView adapter enabling undo on a swiped away item.
-  *///@Override
  public boolean onCreateOptionsMenu(Menu menu) {
   getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
   return true;
@@ -251,7 +230,63 @@ public void comfirm()
  }
 
 
+
+
+
+
+
+
+ class ListReposTask extends AsyncTask<String,Void,Actions> {
+  final ProgressDialog mProgressDialog = ProgressDialog.show(getActivity(), "Chargement","Long operation starts...", true);
+  private final String TAG = ListReposTask.class.getSimpleName();
+  Thread th;
+  @Override
+  protected Actions doInBackground(String...params) {
+
+   Results.GithubService githubService = new RestAdapter.Builder()
+           .setEndpoint(Results.GithubService.ENDPOINT)
+           .build()
+           .create(Results.GithubService.class);
+
+   Actions result_action = githubService.GetEquipmentAction(params[0],params[1]);
+    liste =result_action.getResults();
+  // for(Result_Action ac :  liste ){Log.d(TAG,ac.getDate());}
+   Log.d(TAG,"Tabka Tabka");
+  return result_action;
  }
+  @Override
+  protected  void onPreExecute(){
+
+   th =new Thread((new Runnable() {
+    @Override
+    public void run() {
+     //mProgressDialog.setMessage("Veuillez Patientez");
+
+    }
+   }));
+   th.start();
+  }
+  @Override
+  protected void onPostExecute(Actions actions) {
+   super.onPostExecute(actions);
+   mProgressDialog.dismiss();
+   th.interrupt();
+
+   Log.d(TAG,"Tabka Tabka");
+   for(Result_Action ac :  liste ){
+    //mDataSet.add(new Action( ac.getEquipementID().toString(),ac.getDate().toString() ));
+    Log.d(TAG,"message: "+ac.getEquipementID().toString());
+    mDataSet.add(new Action(ac.getEquipementID().toString(),ac.getDate().toString()));
+    Log.d(TAG,ac.getDate().toString());
+   }
+   /// ici insertion des données!!
+
+
+
+ }
+
+ }
+}
 
 
 
