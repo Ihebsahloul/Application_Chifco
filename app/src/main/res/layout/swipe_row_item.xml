@@ -11,9 +11,9 @@
 
     <LinearLayout
         android:id="@+id/bottom_wrapper"
-        android:layout_width="210dp"
+        android:layout_width="140dp"
         android:layout_height="match_parent"
-        android:weightSum="3">
+        android:weightSum="2">
 
         <TextView
             android:id="@+id/tvEdit"
@@ -26,16 +26,6 @@
             android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/tvShare"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#22708f"
-            android:gravity="center"
-            android:text="Partager"
-            android:textColor="#fff" />
-
-        <TextView
             android:id="@+id/tvDelete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -44,6 +34,8 @@
             android:gravity="center"
             android:text="Retirer"
             android:textColor="#fff" />
+
+
     </LinearLayout>
 
 
@@ -89,9 +81,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvName"
             android:layout_margin="0dp"
-            android:text="Email Id"
+            android:text="Date"
             android:textColor="#504f4f"
             android:textSize="12sp" />
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName"
+            android:layout_margin="0dp"
+            android:text="Value"
+            android:textColor="#504f4f"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </com.daimajia.swipe.SwipeLayout>

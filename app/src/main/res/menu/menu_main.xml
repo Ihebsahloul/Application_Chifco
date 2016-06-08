@@ -8,7 +8,7 @@
     android:id="@+id/action_search"
     android:orderInCategory="200"
     android:title="Search"
-    android:icon="@mipmap/reminder4"
+    android:icon="@mipmap/calend3"
 
 
     app:showAsAction="ifRoom"

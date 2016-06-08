@@ -8,10 +8,14 @@
     <color name="Edittext">#15a698</color>
     <color name="randomcolor">#fae123</color>
     <color name="colorAccent">#0eb34a</color>
+    <color name="green3">#FF75A81C</color>
     <color name="light_black">#ed3023</color>
     <color name="black">#000000</color>
-    <color name="blue">#1a4680</color>
+    <color name="blue">#344d80</color>
     <color name="orange">#ea7826</color>
     <color name="orange2">#ff9e28</color>
     <color name="purewhite">#ffffff</color>
+    <color name="red">#dd4c39</color>
+    <color name="lightblue">#50ced3</color>
+    <color name="green1">#80bf56</color>
 </resources>

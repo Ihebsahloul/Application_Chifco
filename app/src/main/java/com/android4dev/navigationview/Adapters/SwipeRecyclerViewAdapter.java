@@ -47,8 +47,27 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
     public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
         final Action item = studentList.get(position);
 
-        viewHolder.tvName.setText((item.getName()) + "  -  Equipement N° " + position);
+        String Entitled =  item.getName() ;
+        boolean correct ;
+        if (correct = "120268".equals(Entitled))
+        {
+            Entitled = "Prise-TV" ;
+        }
+        else if (correct = "120266".equals(Entitled))
+        {
+            Entitled = "Prise-PC";
+        }
+        else if (correct = "114948".equals(Entitled))
+        {
+            Entitled = "Prise-Climatiseur";
+        }
+        else if (correct = "120269".equals(Entitled))
+        {
+            Entitled = "Prise-M.Laver";
+        }
+        viewHolder.tvName.setText((Entitled) + "  -  Action N° " + position);
         viewHolder.tvEmailId.setText(item.getEmailId());
+        viewHolder.value.setText(item.getValue()) ;
 
 
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
@@ -120,11 +139,12 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
             public void onClick(View v) {
 
                 Toast.makeText(v.getContext(), "Clicked on Map " + viewHolder.tvName.getText().toString(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
 
-        viewHolder.tvShare.setOnClickListener(new View.OnClickListener() {
+       /* viewHolder.tvShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -132,7 +152,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
                 Toast.makeText(view.getContext(), "Clicked on Share " + viewHolder.tvName.getText().toString(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         viewHolder.tvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,6 +224,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
         SwipeLayout swipeLayout;
         TextView tvName;
         TextView tvEmailId;
+        TextView value ;
         TextView tvDelete;
         TextView tvEdit;
         TextView tvShare;
@@ -217,6 +238,7 @@ public class SwipeRecyclerViewAdapter extends RecyclerSwipeAdapter<SwipeRecycler
 
             swipeLayout = (SwipeLayout) itemView.findViewById(R.id.swipe);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
+            value = (TextView) itemView.findViewById(R.id.value);
             tvEmailId = (TextView) itemView.findViewById(R.id.tvEmailId);
             tvDelete = (TextView) itemView.findViewById(R.id.tvDelete);
             tvEdit = (TextView) itemView.findViewById(R.id.tvEdit);

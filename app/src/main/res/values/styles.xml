@@ -37,5 +37,10 @@
     <style name="FAB" parent="AppTheme" >
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="MyButton" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlHighlight">@color/green1</item>
+        <item name="colorButtonNormal">@color/green1</item>
+
+    </style>
 
 </resources>

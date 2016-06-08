@@ -1,6 +1,7 @@
 package com.android4dev.navigationview.Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -44,8 +47,8 @@ public class ContentFragment extends Fragment {
 
 
         ScrollView viewroot  = ( ScrollView) inflater.inflate(R.layout.content_fragment, container, false);
-        //RestAdapter adapter = new RestAdapter.Builder().setEndpoint(GithubService.ENDPOINT).build();
-       // final GithubService restInterface = adapter.create(GithubService.class);
+        //RestAdapter adapter = new RestAdapter.Builder().setEndpoint(RestInterface.ENDPOINT).build();
+       // final RestInterface restInterface = adapter.create(RestInterface.class);
 
         Results.GithubService githubService = new RestAdapter.Builder()
                 .setEndpoint(Results.GithubService.ENDPOINT)
@@ -196,11 +199,11 @@ public class ContentFragment extends Fragment {
             CircularProgressBar circularProgressBar = (CircularProgressBar)getView().findViewById(R.id.cpb1);
 
 
-            double energyvalue =  dashboard.getResults().getEnergy() ;
+            double energyvalue =  (dashboard.getResults().getEnergy()) ;
 
-            float energyfloat = (float) energyvalue ;
+            float energyfloat = (float) energyvalue  ;
 
-            int animationDuration = 2500; // 2500ms = 2,5s
+            int animationDuration = 3000; // 2500ms = 2,5s
             circularProgressBar.setProgressWithAnimation(energyfloat, animationDuration);
 
             //intent2.putExtra(nom_str, box.getBoxName());
@@ -209,6 +212,26 @@ public class ContentFragment extends Fragment {
             //affichage des résultats
         }
     }
+
+
+
+    //@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
     }
 
 

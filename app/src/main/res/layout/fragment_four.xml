@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/tools"
+
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />-->
+
     <View android:layout_width="match_parent"
         android:layout_height="5dp"
         android:background="@drawable/toolbar_dropshadow"/>
@@ -17,7 +13,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="9dp">
+        android:layout_margin="9dp"
+        android:id="@+id/view">
 
 
     <RelativeLayout
@@ -32,7 +29,7 @@
             android:layout_height="110dp"
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/samsung" />
+            android:src="@drawable/socialmedia" />
 
         <TextView
             android:id="@+id/item"
@@ -41,8 +38,8 @@
             android:layout_below="@+id/thumbnail"
             android:maxLines="3"
             android:padding="0dp"
-            android:text="Smart Control"
-            android:textColor="@color/blue"
+            android:text="Médias Sociaux"
+            android:textColor="@color/green1"
             android:textStyle="bold"
             android:textSize="22dp"
             android:layout_marginTop="5dp"
@@ -59,8 +56,7 @@
             android:layout_below="@+id/item"
             android:maxLines="3"
             android:padding="0dp"
-            android:text="Choisisser les actions automatiques que vous voulez effectuer sur vos équipements et appuyer
-sur Confimer "
+            android:text="Partager l'application Smart Life sur les médias sociaux "
 
             android:textSize="14dp"
             android:layout_marginLeft="10dp"
@@ -77,32 +73,92 @@ sur Confimer "
 
     </android.support.v7.widget.CardView>
 
-    <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/listView"
-        android:layout_marginTop="8dp"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="9dp" />
+        android:layout_height="250dp"
+        android:id="@+id/view2"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/view"
+        android:layout_alignLeft="@+id/view"
+        android:layout_alignStart="@+id/view"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="9dp">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvContacts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/check"
-        android:layout_gravity="bottom|end"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/listView"
-        android:layout_alignEnd="@+id/listView"
-        android:layout_marginRight="39dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="43dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/purewhite">
+
+
+
+            <Button
+                android:id="@+id/item"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:padding="0dp"
+                android:text="Partager sur Facebook"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                android:paddingBottom="0dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:theme="@style/Widget.AppCompat.Button.Borderless"
+
+
+                android:layout_above="@+id/item1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="25dp" />
+
+            <Button
+                android:id="@+id/item1"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:maxLines="3"
+                android:padding="0dp"
+                android:text="Partager sur Google+"
+                android:textColor="@color/red"
+
+                android:textSize="20dp"
+                android:paddingBottom="0dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:padding="0dp"
+                android:text="Partager sur Twitter"
+                android:textColor="@color/lightblue"
+
+                android:textSize="20dp"
+                android:paddingBottom="0dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:paddingLeft="8dp"
+                android:layout_below="@+id/item1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="19dp" />
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 
 </RelativeLayout>

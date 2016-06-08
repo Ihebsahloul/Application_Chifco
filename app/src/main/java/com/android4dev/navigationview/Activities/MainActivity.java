@@ -1,8 +1,10 @@
 package com.android4dev.navigationview.Activities;
 
+import android.content.DialogInterface;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -111,18 +113,23 @@ public class MainActivity extends AppCompatActivity {
                         fragmentTransaction4.replace(R.id.frame, fragment4);
                         fragmentTransaction4.commit();
                         return true;
-
-                    case R.id.nav_send:
-                      //  Toast.makeText(getApplicationContext(), "quit Selected", Toast.LENGTH_SHORT).show();
-                        return true;
-
-
-                    default:
-                      //  Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
-                        ContentFragment fragment5 = new ContentFragment();
+                    case R.id.nav_share:
+                        //Toast.makeText(getApplicationContext(), "test4 Selected", Toast.LENGTH_SHORT).show();
+                        FragmentFour fragment5 = new FragmentFour();
                         android.support.v4.app.FragmentTransaction fragmentTransaction5 = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction5.replace(R.id.frame, fragment5);
                         fragmentTransaction5.commit();
+                        return true;
+
+
+
+
+                  default:
+                      //  Toast.makeText(getApplicationContext(), "test1 Selected", Toast.LENGTH_SHORT).show();
+                        ContentFragment fragment6 = new ContentFragment();
+                        android.support.v4.app.FragmentTransaction fragmentTransaction6 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction6.replace(R.id.frame, fragment6);
+                        fragmentTransaction6.commit();
                         return true;
 
                 }
@@ -178,6 +185,26 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Voulez vous vraiment quitter ?")
+                .setCancelable(false)
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
 
 
 

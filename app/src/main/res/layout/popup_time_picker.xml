@@ -28,14 +28,16 @@
 
 
             <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Confirmer"
                 android:id="@+id/button1"
 
 
-                android:background="#80ba1a"
-                android:textColor="@color/abc_primary_text_disable_only_material_dark"
+
+
+                android:textColor="#80ba1a"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -43,19 +45,19 @@
                 android:layout_marginLeft="0dp" />
 
             <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Annuler"
                 android:id="@+id/button2"
-                android:theme="@style/dialog"
 
-                android:textColor="@color/abc_primary_text_disable_only_material_dark"
-                android:background="#ea6f51"
+                android:textColor="#ea6f51"
+
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="0dp"
-                android:layout_weight="0.53" />
+                android:layout_weight="0.50" />
 
         </LinearLayout>
 

@@ -71,9 +71,9 @@ public class FragmentFour extends Fragment {
 
 
     //private View  root = null;
-    private List<String> mAppList =  new ArrayList<String>();
-    private AppAdapter mAdapter;
-    private SwipeMenuListView mListView;
+   // private List<String> mAppList =  new ArrayList<String>();
+
+   // private SwipeMenuListView mListView;
     private View rootView = null;
     private TextView title , desc ;
 
@@ -89,10 +89,10 @@ public class FragmentFour extends Fragment {
 
        // title = (TextView) getActivity().findViewById(R.id.title);
         //desc = (TextView) getActivity().findViewById(R.id.title1);
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+        /*Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Semibold.otf");
         Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
-        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;*/
 
 
 
@@ -126,15 +126,15 @@ public class FragmentFour extends Fragment {
 
         RecyclerView recyclerView ;
 
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
+       /* Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
         Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
 
         Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
-        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;
+        Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf") ;*/
 
-        SwipeMenuListView mListView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
-        TextView title = (TextView) getActivity().findViewById((R.id.item))  ;
-        TextView title1 = (TextView) getActivity().findViewById((R.id.title))  ;
+       // SwipeMenuListView mListView = (SwipeMenuListView) getActivity().findViewById(R.id.listView);
+        //TextView title = (TextView) getActivity().findViewById((R.id.item))  ;
+        //TextView title1 = (TextView) getActivity().findViewById((R.id.title))  ;
        // /FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
        // fab.attachToListView(mListView);
         //mListView.setOnTouchListener(new ShowHideOnScroll(fab));
@@ -143,10 +143,10 @@ public class FragmentFour extends Fragment {
 
 
        // title1 = (TextView) getActivity().findViewById(R.id.title);
-        desc = (TextView) getActivity().findViewById(R.id.title1);
+       // desc = (TextView) getActivity().findViewById(R.id.title1);
 
        // title.setTypeface(tf3);
-        desc.setTypeface(tf2) ;
+       // desc.setTypeface(tf2) ;
 
 
 
@@ -156,124 +156,12 @@ public class FragmentFour extends Fragment {
 
 
 
-        mAppList.add("Prise-TV");
-        mAppList.add("Prise-PC");
-        mAppList.add("Prise-Climatiseur");
-       // mAppList.add("Prise-Hotte");
-        mAppList.add("Prise-Réfrigérateur");
-        mAppList.add("Prise-M.Laver");
-        mAppList.add("Prise-Cafétière");
-       // mAppList.add("item 8");
-        //mAppList.add("item 9");
-       // mAppList.add("item 10");
-
-
-
-
-
-            mAdapter = new AppAdapter();
-            mListView.setAdapter(mAdapter);
-
-        // step 1. create a MenuCreator
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
-
-            @Override
-            public void create(SwipeMenu menu) {
-                // create "open" item
-                SwipeMenuItem openItem = new SwipeMenuItem(
-                        getActivity());
-                // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
-                        0xCE)));
-                // set item width
-                openItem.setWidth(dp2px(90));
-                // set item title
-                openItem.setTitle("Changer le temps d'éxécution");
-                // set item title fontsize
-                openItem.setTitleSize(10);
-                // set item title font color
-                openItem.setTitleColor(Color.WHITE);
-                // add to menu
-                menu.addMenuItem(openItem);
-
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        getActivity());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
-                // set item width
-                deleteItem.setWidth(dp2px(90));
-
-                // set a icon
-                deleteItem.setIcon(R.drawable.trash1);
-                // add to menu
-                menu.addMenuItem(deleteItem);
-
-            }
-        };
-        // set creator
-        mListView.setMenuCreator(creator);
-
-        // step 2. listener item click event
-        mListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                String item = mAppList.get(position);
-                switch (index) {
-                    case 0:
-                        // open
-                        //open(item);
-                        break;
-                    case 1:
-                        // delete
-//					delete(item);
-                        mAppList.remove(position);
-                        mAdapter.notifyDataSetChanged();
-                        break;
-                }
-                return false;
-            }
-        });
 
         // set SwipeListener
-        mListView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
 
-            @Override
-            public void onSwipeStart(int position) {
-                // swipe start
-            }
-
-            @Override
-            public void onSwipeEnd(int position) {
-                // swipe end
-            }
-        });
 
         // set MenuStateChangeListener
-        mListView.setOnMenuStateChangeListener(new SwipeMenuListView.OnMenuStateChangeListener() {
-            @Override
-            public void onMenuOpen(int position) {
-            }
 
-            @Override
-            public void onMenuClose(int position) {
-            }
-        });
-
-        // other setting
-//		listView.setCloseInterpolator(new BounceInterpolator());
-
-        // test item long click
-        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view,
-                                           int position, long id) {
-                Toast.makeText(getActivity(), position + " long click", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
         //mListView.bringToFront();
 
     }
@@ -331,136 +219,11 @@ public class FragmentFour extends Fragment {
         return xAxis;
     }*/
 
-    private void delete(String item) {
-        // delete app
-        try {
-            Intent intent = new Intent(Intent.ACTION_DELETE);
-            intent.setData(Uri.fromParts("package", item, null));
-            startActivity(intent);
-        } catch (Exception e) {
-        }
-    }
-
-
-    private void open(String item) {
-        // open app
-        Intent resolveIntent = new Intent(Intent.ACTION_GET_CONTENT, null);
-        resolveIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        resolveIntent.setPackage(item);
-        List<ResolveInfo> resolveInfoList = getActivity().getPackageManager()
-                .queryIntentActivities(resolveIntent, 0);
-        if (resolveInfoList != null && resolveInfoList.size() > 0) {
-            ResolveInfo resolveInfo = resolveInfoList.get(0);
-            String activityPackageName = resolveInfo.activityInfo.packageName;
-            String className = resolveInfo.activityInfo.name;
-
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.addCategory(Intent.CATEGORY_LAUNCHER);
-            ComponentName componentName = new ComponentName(
-                    activityPackageName, className);
-
-            intent.setComponent(componentName);
-            startActivity(intent);
-        }
-    }
-
-    class AppAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return mAppList.size();
-        }
-
-        @Override
-        public String getItem(int position) {
-            return mAppList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = View.inflate(getActivity(),
-                        R.layout.item_list_app, null);
-                new ViewHolder(convertView);
-            }
-            ViewHolder holder = (ViewHolder) convertView.getTag();
-            String item = getItem(position);
-
-
-           // holder.iv_icon1.setImageDrawable(item.loadIcon(getActivity().getPackageManager()));
-            //holder.tv_name.setText(item.loadLabel(getActivity().getPackageManager()));
-
-            //holder.iv_icon1.setImageDrawable(item.loadIcon(getPackageManager()));
-            holder.tv_name.setText(item);
-            holder.iv_icon1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Toast.makeText(SimpleActivity.this, "iv_icon_click", Toast.LENGTH_SHORT).show();
-
-
-
-                }
-            });
-
-
-
-            holder.tv_name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Toast.makeText(SimpleActivity.this,"iv_icon_click",Toast.LENGTH_SHORT).show();
-                }
-            });
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageView iv_icon1 ,iv_icon2 ,  iv_icon3 ,  iv_icon4 , iv_icon5 ,   iv_icon6  ;
-            TextView tv_name , title , desc;
-
-            public ViewHolder(View view) {
-
-
-
-                iv_icon1 = (ImageView) view.findViewById(R.id.iv_icon1);
-               /* iv_icon2 = (ImageView) view.findViewById(R.id.iv_icon2);
-                iv_icon3 = (ImageView) view.findViewById(R.id.iv_icon3);
-                iv_icon4 = (ImageView) view.findViewById(R.id.iv_icon4);
-                iv_icon5 = (ImageView) view.findViewById(R.id.iv_icon5);
-                iv_icon6 = (ImageView) view.findViewById(R.id.iv_icon6);*/
-               // iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
-
-
-                tv_name = (TextView) view.findViewById(R.id.tv_name);
-
-
-                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/MyriadPro-Regular.otf");
-                Typeface tf1 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/museosans-500.otf");
-                Typeface tf2 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Regular.ttf");
-                Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Fonts/OpenSans-Bold.ttf");
-               // tv_name.setTypeface(tf2);
 
 
 
 
-                view.setTag(this);
-            }
-        }
 
-        // @Override
-        public boolean getSwipEnableByPosition(int position) {
-            return position % 2 != 0;
-        }
-    }
-
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getResources().getDisplayMetrics());
-    }
 
     //@Override
     public boolean onCreateOptionsMenu(Menu menu) {

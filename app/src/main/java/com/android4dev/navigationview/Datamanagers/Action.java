@@ -15,15 +15,17 @@ import java.io.Serializable;
 
     private String name;
 
-    private String emailId;
+    private String Date;
+     private String value ;
      private Image pic ;
 
     public Action() {
 
     }
-    public Action(String name, String emailId ) {
+    public Action(String name, String date ,String value ) {
         this.name = name;
-        this.emailId = emailId;
+        this.Date = date;
+        this.value = value ;
       //  this.pic= pic  ;
     }
 
@@ -41,13 +43,19 @@ import java.io.Serializable;
      //    this.pic = pic;
    //  }
 
+     public String getValue() {
+         return value;
+     }
+
     public String getEmailId() {
-        return emailId;
+        return Date;
     }
 
     public void setEmailId(String emailId) {
-        this.emailId = emailId;
+        this.Date = emailId;
     }
-
+     public void setValue(String value) {
+         this.value = value;
+     }
 
 }
