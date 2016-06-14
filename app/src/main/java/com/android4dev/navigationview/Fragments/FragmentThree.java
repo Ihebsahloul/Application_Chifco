@@ -280,6 +280,9 @@ c.close();*/
         List_spinner1.add("Climatiseur");
         List_spinner1.add("PC");
         List_spinner1.add("M.Laver");
+        List_spinner1.add("Capteur.Salon");
+        List_spinner1.add("Capteur.Cuisine");
+        List_spinner1.add("Capteur.Chambre");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner1);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -288,10 +291,11 @@ c.close();*/
         spinner1.setAdapter(adapter);
         //select de sqlite avec jointure
         List List_spinner2 = new ArrayList();
-        List_spinner2.add("Temperature");
         List_spinner2.add("Consomation");
+        List_spinner2.add("Temperature");
         List_spinner2.add("luminosité");
         List_spinner2.add("Etat On/Off");
+        List_spinner2.add("Humidité");
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, List_spinner2);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -344,7 +348,7 @@ c.close();*/
                 mChart.setBackgroundColor(Color.WHITE);
 
                 // add data
-                setData(20, 30);
+                setData(24, 30);
 
                 mChart.animateX(2500);
 
@@ -373,7 +377,7 @@ c.close();*/
                 YAxis leftAxis = mChart.getAxisLeft();
                 leftAxis.setTypeface(tf);
                 leftAxis.setTextColor(ColorTemplate.getHoloBlue());
-                leftAxis.setAxisMaxValue(180f);
+                leftAxis.setAxisMaxValue(1300f);
                 leftAxis.setAxisMinValue(0f);
                 leftAxis.setDrawGridLines(true);
                 leftAxis.setGranularityEnabled(true);
@@ -381,7 +385,7 @@ c.close();*/
                 YAxis rightAxis = mChart.getAxisRight();
                 rightAxis.setTypeface(tf);
                 rightAxis.setTextColor(Color.RED);
-                rightAxis.setAxisMaxValue(700);
+                rightAxis.setAxisMaxValue(250);
                 rightAxis.setAxisMinValue(-200);
                 rightAxis.setDrawGridLines(false);
                 rightAxis.setDrawZeroLine(false);
@@ -537,7 +541,7 @@ c.close();*/
 
         for (int i = 0; i < count; i++) {
             float mult = range / 2f;
-            float val = (float) (Math.random() * mult) + 50;// + (float)
+            float val = (float) (Math.random() ) *1200;// + (float)
             // ((mult *
             // 0.1) / 10);
             yVals1.add(new Entry(val, i));
@@ -564,7 +568,7 @@ c.close();*/
             mChart.notifyDataSetChanged();
         } else {
             // create a dataset and give it a type
-            set1 = new LineDataSet(yVals1, "Température");
+            set1 = new LineDataSet(yVals1, "Power consumption");
 
             set1.setAxisDependency(YAxis.AxisDependency.LEFT);
             //set1.setColors(ColorTemplate.VORDIPLOM_COLORS);
@@ -583,22 +587,22 @@ c.close();*/
             //set1.setCircleHoleColor(Color.WHITE);
 
             // create a dataset and give it a type
-            set2 = new LineDataSet(yVals2, "Humidité");
-            set2.setAxisDependency(YAxis.AxisDependency.RIGHT);
-            set2.setColor(ColorTemplate.VORDIPLOM_COLORS[0]);
-            set2.setCircleColor(ColorTemplate.VORDIPLOM_COLORS[0]);
-            set2.setLineWidth(2.5f);
-            set2.setCircleRadius(4.5f);
-            set2.setFillAlpha(65);
-            set2.setFillColor(ColorTemplate.VORDIPLOM_COLORS[0]);
+            //set2 = new LineDataSet(yVals2, "Humidité");
+            //set2.setAxisDependency(YAxis.AxisDependency.RIGHT);
+            //set2.setColor(ColorTemplate.VORDIPLOM_COLORS[0]);
+           // set2.setCircleColor(ColorTemplate.VORDIPLOM_COLORS[0]);
+           // set2.setLineWidth(2.5f);
+           // set2.setCircleRadius(4.5f);
+           // set2.setFillAlpha(65);
+           // set2.setFillColor(ColorTemplate.VORDIPLOM_COLORS[0]);
             //set2.setDrawCircleHole(false);
-            set2.setDrawFilled(true);
-            set2.setDrawValues(true);
-            set2.setHighLightColor(Color.rgb(244, 117, 117));
+           // set2.setDrawFilled(true);
+           // set2.setDrawValues(true);
+           // set2.setHighLightColor(Color.rgb(244, 117, 117));
             //set2.setFillFormatter(new MyFillFormatter(900f));
 
             ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
-            dataSets.add(set2);
+           // dataSets.add(set2);
             dataSets.add(set1); // add the datasets
 
             // create a data object with the datasets
